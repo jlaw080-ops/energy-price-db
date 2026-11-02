@@ -1,0 +1,107 @@
+{
+  "meta": {
+    "dataset": "kogas_wholesale",
+    "title": "한국가스공사 용도별 천연가스 도매요금",
+    "provider": "한국가스공사",
+    "source_file": "단가정보/가스요금/2026-11-01_한국가스공사_도시가스용천연가스_도매요금_추출본.md",
+    "source_portal": "한국가스공사 홈페이지 (kogas.or.kr)",
+    "source_type": "추출본",
+    "effective_from": "2026-11-01",
+    "currency": "KRW",
+    "unit": "원/MJ",
+    "vat": "부가세 별도",
+    "record_count": 11,
+    "converted_at": "2026-11-02",
+    "note": "도매요금입니다. 소비자가 내는 소매요금은 시·도지사 승인으로 결정돼 지역별로 다릅니다. '평균' 행은 요금이 아니라 요약 수치라 제외했습니다."
+  },
+  "items": [
+    {
+      "sector": "민수용",
+      "use": "주택용",
+      "season": "단일요금",
+      "feedstock_cost_won_per_mj": 17.712,
+      "supply_cost_won_per_mj": 3.1375,
+      "wholesale_price_won_per_mj": 20.8495
+    },
+    {
+      "sector": "민수용",
+      "use": "일반용",
+      "season": "단일요금",
+      "feedstock_cost_won_per_mj": 17.712,
+      "supply_cost_won_per_mj": 1.3784,
+      "wholesale_price_won_per_mj": 19.0904
+    },
+    {
+      "sector": "상업용",
+      "use": "업무난방용",
+      "season": "단일요금",
+      "feedstock_cost_won_per_mj": 25.2668,
+      "supply_cost_won_per_mj": 3.2798,
+      "wholesale_price_won_per_mj": 28.5466
+    },
+    {
+      "sector": "상업용",
+      "use": "냉난방공조용",
+      "season": "동절기",
+      "feedstock_cost_won_per_mj": 25.2668,
+      "supply_cost_won_per_mj": 2.2924,
+      "wholesale_price_won_per_mj": 27.5592
+    },
+    {
+      "sector": "상업용",
+      "use": "냉난방공조용",
+      "season": "하절기",
+      "feedstock_cost_won_per_mj": 18.8256,
+      "supply_cost_won_per_mj": 0.0,
+      "wholesale_price_won_per_mj": 18.8256
+    },
+    {
+      "sector": "상업용",
+      "use": "냉난방공조용",
+      "season": "기타월",
+      "feedstock_cost_won_per_mj": 25.2668,
+      "supply_cost_won_per_mj": 1.3902,
+      "wholesale_price_won_per_mj": 26.657
+    },
+    {
+      "sector": "상업용",
+      "use": "산업용",
+      "season": "단일요금",
+      "feedstock_cost_won_per_mj": 25.2668,
+      "supply_cost_won_per_mj": 1.236,
+      "wholesale_price_won_per_mj": 26.5028
+    },
+    {
+      "sector": "상업용",
+      "use": "수송용",
+      "season": "단일요금",
+      "feedstock_cost_won_per_mj": 25.2668,
+      "supply_cost_won_per_mj": 0.6981,
+      "wholesale_price_won_per_mj": 25.9649
+    },
+    {
+      "sector": "도시가스발전용",
+      "use": "열병합용",
+      "season": "단일요금",
+      "feedstock_cost_won_per_mj": 24.3769,
+      "supply_cost_won_per_mj": 2.1145,
+      "wholesale_price_won_per_mj": 26.4914
+    },
+    {
+      "sector": "도시가스발전용",
+      "use": "연료전지용",
+      "season": "단일요금",
+      "feedstock_cost_won_per_mj": 24.3769,
+      "supply_cost_won_per_mj": 0.6804,
+      "wholesale_price_won_per_mj": 25.0573
+    },
+    {
+      "sector": "도시가스발전용",
+      "use": "열전용설비용",
+      "season": "단일요금",
+      "feedstock_cost_won_per_mj": 25.3612,
+      "supply_cost_won_per_mj": 3.9438,
+      "wholesale_price_won_per_mj": 29.305
+    }
+  ]
+}

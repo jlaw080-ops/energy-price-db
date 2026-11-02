@@ -103,10 +103,13 @@ select '가스 월별', count(*), md5(string_agg(line, E'\\n' order by line)) fr
   from pricing.gas_power_generation_monthly) m
 union all
 -- 가스 도매요금
-select '가스 도매요금', count(*), md5(string_agg(line, E'\\n' order by line)) from (
-  select sector||'|'||use_type||'|'||season||'|'||feedstock_cost::float8::text||'|'||
+select '가스 도매요금 '||effective_from, count(*),
+       md5(string_agg(line, E'\\n' order by line)) from (
+  select effective_from,
+         sector||'|'||use_type||'|'||season||'|'||feedstock_cost::float8::text||'|'||
          supply_cost::float8::text||'|'||wholesale_price::float8::text as line
   from pricing.gas_wholesale_price) w
+group by effective_from
 union all
 -- 기후환경요금 · 연료비조정단가
 select '부가요금', count(*), md5(string_agg(line, E'\\n' order by line)) from (
@@ -169,6 +172,9 @@ def main() -> None:
                 lines = electricity_lines(doc, tariffs)
                 print(f"{label + ' ' + eff:<22} {len(lines):>6}  {digest(lines)}")
             continue
+        if label == "가스 도매요금":
+            # 스냅샷이 여러 시점이 되면 시행일로 나눠야 DB 와 대조된다
+            label += " " + doc["meta"]["effective_from"]
         lines = build(doc)
         print(f"{label:<22} {len(lines):>6}  {digest(lines)}")
     print("\nDB 쪽 값은 `python3 scripts/checksum.py --sql` 의 SQL 로 확인하세요.")
