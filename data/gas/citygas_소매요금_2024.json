@@ -215,12 +215,6 @@
    "basic_charge_note": "(지) 1,700 (취·개)    850"
   },
   {
-   "effective_from": "2024-01-01",
-   "region": "<참고>열전용(1)의요금이별도기재되지않은경우:공동주택열병합발전시설과연계된소규모자가열전용보일러시설의요금은주택난방용요금이적용될수있음.",
-   "company": "",
-   "basic_charge_note": null
-  },
-  {
    "effective_from": "2024-02-01",
    "region": "서울특별시",
    "company": "(서울5사)",
@@ -405,12 +399,6 @@
    "region": "경남양산시",
    "company": "(경동)",
    "basic_charge_note": "(지) 1,700 (취·개)    850"
-  },
-  {
-   "effective_from": "2024-02-01",
-   "region": "<참고>열전용(1)의요금이별도기재되지않은경우:공동주택열병합발전시설과연계된소규모자가열전용보일러시설의요금은주택난방용요금이적용될수있음.",
-   "company": "",
-   "basic_charge_note": null
   },
   {
    "effective_from": "2024-03-01",
@@ -599,12 +587,6 @@
    "basic_charge_note": "(지) 1,700 (취·개)    850"
   },
   {
-   "effective_from": "2024-03-01",
-   "region": "<참고>열전용(1)의요금이별도기재되지않은경우:공동주택열병합발전시설과연계된소규모자가열전용보일러시설의요금은주택난방용요금이적용될수있음.",
-   "company": "",
-   "basic_charge_note": null
-  },
-  {
    "effective_from": "2024-04-01",
    "region": "서울특별시",
    "company": "(서울5사)",
@@ -789,12 +771,6 @@
    "region": "경남양산시",
    "company": "(경동)",
    "basic_charge_note": "(지) 1,700 (취·개)    850"
-  },
-  {
-   "effective_from": "2024-04-01",
-   "region": "<참고>열전용(1)의요금이별도기재되지않은경우:공동주택열병합발전시설과연계된소규모자가열전용보일러시설의요금은주택난방용요금이적용될수있음.",
-   "company": "",
-   "basic_charge_note": null
   },
   {
    "effective_from": "2024-05-01",
@@ -983,12 +959,6 @@
    "basic_charge_note": "(지) 1,700 (취·개)    850"
   },
   {
-   "effective_from": "2024-05-01",
-   "region": "<참고>열전용(1)의요금이별도기재되지않은경우:공동주택열병합발전시설과연계된소규모자가열전용보일러시설의요금은주택난방용요금이적용될수있음.",
-   "company": "",
-   "basic_charge_note": null
-  },
-  {
    "effective_from": "2024-06-01",
    "region": "서울특별시",
    "company": "(서울5사)",
@@ -1173,12 +1143,6 @@
    "region": "경남양산시",
    "company": "(경동)",
    "basic_charge_note": "(지) 1,700 (취·개)    850"
-  },
-  {
-   "effective_from": "2024-06-01",
-   "region": "<참고>열전용(1)의요금이별도기재되지않은경우:공동주택열병합발전시설과연계된소규모자가열전용보일러시설의요금은주택난방용요금이적용될수있음.",
-   "company": "",
-   "basic_charge_note": null
   },
   {
    "effective_from": "2024-07-01",
@@ -1367,12 +1331,6 @@
    "basic_charge_note": "(지) 1,700 (취·개)    850"
   },
   {
-   "effective_from": "2024-07-01",
-   "region": "<참고>열전용(1)의요금이별도기재되지않은경우:공동주택열병합발전시설과연계된소규모자가열전용보일러시설의요금은주택난방용요금이적용될수있음.",
-   "company": "",
-   "basic_charge_note": null
-  },
-  {
    "effective_from": "2024-08-01",
    "region": "서울특별시",
    "company": "(서울5사)",
@@ -1557,12 +1515,6 @@
    "region": "경남양산시",
    "company": "(경동)",
    "basic_charge_note": "(지) 1,700 (취·개)    850"
-  },
-  {
-   "effective_from": "2024-08-01",
-   "region": "<참고>열전용(1)의요금이별도기재되지않은경우:공동주택열병합발전시설과연계된소규모자가열전용보일러시설의요금은주택난방용요금이적용될수있음.",
-   "company": "",
-   "basic_charge_note": null
   },
   {
    "effective_from": "2024-09-01",
@@ -1751,12 +1703,6 @@
    "basic_charge_note": "(지) 1,700 (취·개)    850"
   },
   {
-   "effective_from": "2024-09-01",
-   "region": "<참고>열전용(1)의요금이별도기재되지않은경우:공동주택열병합발전시설과연계된소규모자가열전용보일러시설의요금은주택난방용요금이적용될수있음.",
-   "company": "",
-   "basic_charge_note": null
-  },
-  {
    "effective_from": "2024-10-01",
    "region": "서울특별시",
    "company": "(서울5사)",
@@ -1941,12 +1887,6 @@
    "region": "경남양산시",
    "company": "(경동)",
    "basic_charge_note": "(지) 1,700 (취·개)    850"
-  },
-  {
-   "effective_from": "2024-10-01",
-   "region": "<참고>열전용(1)의요금이별도기재되지않은경우:공동주택열병합발전시설과연계된소규모자가열전용보일러시설의요금은주택난방용요금이적용될수있음.",
-   "company": "",
-   "basic_charge_note": null
   },
   {
    "effective_from": "2024-11-01",
@@ -2135,12 +2075,6 @@
    "basic_charge_note": "(지) 1,700 (취·개)    850"
   },
   {
-   "effective_from": "2024-11-01",
-   "region": "<참고>열전용(1)의요금이별도기재되지않은경우:공동주택열병합발전시설과연계된소규모자가열전용보일러시설의요금은주택난방용요금이적용될수있음.",
-   "company": "",
-   "basic_charge_note": null
-  },
-  {
    "effective_from": "2024-12-01",
    "region": "서울특별시",
    "company": "(서울5사)",
@@ -2325,12 +2259,6 @@
    "region": "경남양산시",
    "company": "(경동)",
    "basic_charge_note": "(지) 1,700 (취·개)    850"
-  },
-  {
-   "effective_from": "2024-12-01",
-   "region": "<참고>열전용(1)의요금이별도기재되지않은경우:공동주택열병합발전시설과연계된소규모자가열전용보일러시설의요금은주택난방용요금이적용될수있음.",
-   "company": "",
-   "basic_charge_note": null
   }
  ],
  "items": [
