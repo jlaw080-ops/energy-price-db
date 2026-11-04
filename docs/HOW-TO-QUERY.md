@@ -394,6 +394,69 @@ select * from pricing.calc_seasonal_bill(
 
 ---
 
+## 10. 도시가스 요금 — 월별 시계열 (2016~2026)
+
+도시가스 요금표(공시용 엑셀) 93개에서 뽑은 **월별** 자료입니다. 연료전지 경제성분석의 연료비가 여기 있습니다.
+
+| 표 | 내용 | 행수 |
+|---|---|---:|
+| `citygas_wholesale_monthly` | 도매요금 (전국 단일) | 2,499 |
+| `citygas_retail_monthly` | 소매요금 (시·도별) | 67,181 |
+| `citygas_retail_region` | 지역별 공급회사·기본요금 | — |
+
+```sql
+-- 연료전지용 도매요금 추이 (2019-05 신설 이후 80개 시점)
+select effective_from, won_per_mj
+from citygas_wholesale_monthly
+where use_category = '연료전지용'
+order by effective_from;
+
+-- 서울의 업무난방용 소매요금 추이
+select effective_from, won_per_mj
+from citygas_retail_monthly
+where region = '서울특별시' and use_category = '업무난방용'
+order by effective_from;
+
+-- 특정 시점, 지역별 연료전지용 소매요금 비교
+select region, won_per_mj
+from citygas_retail_monthly
+where effective_from = '2026-11-01' and use_category = '연료전지용'
+order by won_per_mj;
+```
+
+단위는 **원/MJ, 부가세 별도**입니다.
+
+### 도매와 소매를 혼동하지 마세요
+
+```
+가스공사 도매요금  →  (+ 도시가스사 공급비용, 시·도지사 승인)  →  소매요금
+   전국 단일                                                    지역마다 다름
+```
+
+경제성분석에서 **실제 연료비로 쓰는 것은 소매요금**입니다. 도매요금은 전국 기준값입니다.
+
+### ⚠️ 2026-11-01 도매요금 주의
+
+그 시점 행에는 `note` 가 붙어 있습니다. 원본 엑셀의 도매요금란이 10월 값 그대로여서
+11월 인상이 반영돼 있지 않습니다. **그 시점의 도매요금은 `gas_wholesale_price`**(한국가스공사
+공시, 연료전지용 25.0573원/MJ)**를 쓰세요.**
+
+```sql
+-- note 가 붙은 행은 그대로 쓰면 안 됩니다
+select effective_from, use_category, won_per_mj, note
+from citygas_wholesale_monthly where note is not null;
+```
+
+### 용도 구분
+
+`use_category` 27종: 주택용(취사용·주택난방·중앙난방·취사전용), 업무난방용, 일반용1·2,
+냉난방공조용, 산업용, 열병합1(소형열병합·CES)·열병합2(집단에너지), 열전용설비용(1·2·3),
+**연료전지용**. 계절이 나뉘는 용도는 `use_detail` 이 동절기/하절기/기타월입니다.
+
+연료전지용은 **2019-05-01 신설**이라 그 이전 시점에는 없습니다.
+
+---
+
 ## 다른 앱에서 REST API 로 읽으려면
 
 👉 **자세한 방법은 [HOW-TO-USE-API.md](HOW-TO-USE-API.md) 에 따로 정리했습니다.**

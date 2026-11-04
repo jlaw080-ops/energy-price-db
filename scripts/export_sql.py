@@ -272,6 +272,57 @@ def price_list_sql(doc: dict, table: str, equipment: bool) -> tuple[str, int]:
     return sql, len(records)
 
 
+def citygas_wholesale_sql(doc: dict) -> tuple[str, int]:
+    """도시가스 도매요금 월별 시계열."""
+    meta = doc["meta"]
+    records = [[i["effective_from"], i["use_category"], i["use_detail"], i["won_per_mj"]]
+               for i in doc["items"]]
+    sql = "\n".join([
+        "-- " + meta["title"] + f"  ({meta['period']}, {meta['record_count']:,}행)",
+        "-- 출처: " + meta["source_dir"] + "  (" + meta["source_type"] + ")",
+        "insert into pricing.citygas_wholesale_monthly",
+        "  (effective_from, use_category, use_detail, won_per_mj)",
+        "values",
+        ",\n".join(row(r) for r in records),
+        "on conflict (effective_from, use_category, use_detail) do update set",
+        "  won_per_mj = excluded.won_per_mj;",
+        "",
+    ])
+    return sql, len(records)
+
+
+def citygas_retail_sql(doc: dict) -> tuple[str, int]:
+    """시·도별 도시가스 소매요금. 지역 정보와 요율을 따로 넣는다."""
+    meta = doc["meta"]
+    regs = [[r["effective_from"], r["region"], r["company"], r["basic_charge_note"]]
+            for r in doc.get("regions", [])]
+    items = [[i["effective_from"], i["region"], i["use_category"], i["use_detail"],
+              i["won_per_mj"]] for i in doc["items"]]
+    parts = ["-- " + meta["title"] + f"  ({meta['record_count']:,}행)",
+             "-- 출처: " + meta["source_dir"] + "  (" + meta["source_type"] + ")"]
+    if regs:
+        parts += [
+            "insert into pricing.citygas_retail_region",
+            "  (effective_from, region, company, basic_charge_note)",
+            "values",
+            ",\n".join(row(r) for r in regs),
+            "on conflict (effective_from, region) do update set",
+            "  company = excluded.company,",
+            "  basic_charge_note = excluded.basic_charge_note;",
+            "",
+        ]
+    parts += [
+        "insert into pricing.citygas_retail_monthly",
+        "  (effective_from, region, use_category, use_detail, won_per_mj)",
+        "values",
+        ",\n".join(row(r) for r in items),
+        "on conflict (effective_from, region, use_category, use_detail) do update set",
+        "  won_per_mj = excluded.won_per_mj;",
+        "",
+    ]
+    return "\n".join(parts), len(items)
+
+
 def main() -> None:
     OUT.mkdir(parents=True, exist_ok=True)
     total = 0
@@ -290,6 +341,10 @@ def main() -> None:
             sql, n = price_list_sql(doc, "misc_price", False)
         elif dataset == "kepco_electricity_surcharge":
             sql, n = surcharge_sql(doc)
+        elif dataset == "citygas_wholesale_monthly":
+            sql, n = citygas_wholesale_sql(doc)
+        elif dataset == "citygas_retail_monthly":
+            sql, n = citygas_retail_sql(doc)
         else:
             continue
         out = OUT / (path.stem + ".sql")
