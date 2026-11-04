@@ -176,6 +176,49 @@ def check_surcharge(path: Path, doc: dict) -> None:
         warn(path, f"한전 공식 고시로 확인되지 않은 값이 {len(unconfirmed)}건 있습니다 (source_type=보도)")
 
 
+def check_citygas(path: Path, doc: dict, retail: bool) -> None:
+    """도시가스 요금표에서 뽑은 월별 시계열."""
+    meta = doc.get("meta", {})
+    for field in ("dataset", "source_dir", "unit"):
+        if not meta.get(field):
+            err(path, f"meta.{field} 가 없습니다")
+    if meta.get("unit") != "원/MJ":
+        err(path, f"단위가 원/MJ 이 아닙니다: {meta.get('unit')!r}")
+
+    items = doc.get("items", [])
+    if not items:
+        err(path, "items 가 비어 있습니다")
+        return
+    if meta.get("record_count") != len(items):
+        err(path, f"meta.record_count({meta.get('record_count')}) 와 "
+                  f"실제 항목 수({len(items)}) 가 다릅니다")
+
+    keys, dates = set(), set()
+    for i in items:
+        for field in ("effective_from", "use_category", "won_per_mj"):
+            if i.get(field) is None:
+                err(path, f"{field} 가 없는 항목이 있습니다: {i}")
+                return
+        check_iso_date(path, i["effective_from"], "effective_from")
+        dates.add(i["effective_from"])
+        if not isinstance(i["won_per_mj"], (int, float)) or i["won_per_mj"] <= 0:
+            err(path, f"요금이 숫자가 아니거나 0 이하입니다: {i}")
+        k = (i["effective_from"], i.get("region", ""), i["use_category"],
+             i.get("use_detail", ""))
+        if k in keys:
+            err(path, f"같은 키가 두 번 있습니다: {k}")
+        keys.add(k)
+
+    if retail:
+        regs = {(r["effective_from"], r["region"]) for r in doc.get("regions", [])}
+        missing = {(i["effective_from"], i["region"]) for i in items} - regs
+        if missing:
+            err(path, f"regions 에 없는 (시점,지역) 이 {len(missing)}건 있습니다: "
+                      f"{sorted(missing)[:3]}")
+        if meta.get("year") and {d[:4] for d in dates} != {str(meta["year"])}:
+            err(path, f"meta.year({meta['year']}) 와 다른 연도의 자료가 섞여 있습니다")
+
+
 def check_price_list(path: Path, doc: dict, equipment: bool) -> None:
     required = {"slug", "category", "name", "unit_price", "price_unit", "base_date"}
     if equipment:
@@ -221,6 +264,10 @@ def main() -> None:
             check_price_list(path, doc, equipment=False)
         elif dataset == "kepco_electricity_surcharge":
             check_surcharge(path, doc)
+        elif dataset == "citygas_wholesale_monthly":
+            check_citygas(path, doc, retail=False)
+        elif dataset == "citygas_retail_monthly":
+            check_citygas(path, doc, retail=True)
         elif dataset == "kepco_residential_welfare_discount":
             check_welfare(path, doc)
         else:

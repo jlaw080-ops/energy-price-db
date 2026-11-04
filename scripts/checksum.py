@@ -103,10 +103,13 @@ select '가스 월별', count(*), md5(string_agg(line, E'\\n' order by line)) fr
   from pricing.gas_power_generation_monthly) m
 union all
 -- 가스 도매요금
-select '가스 도매요금', count(*), md5(string_agg(line, E'\\n' order by line)) from (
-  select sector||'|'||use_type||'|'||season||'|'||feedstock_cost::float8::text||'|'||
+select '가스 도매요금 '||effective_from, count(*),
+       md5(string_agg(line, E'\\n' order by line)) from (
+  select effective_from,
+         sector||'|'||use_type||'|'||season||'|'||feedstock_cost::float8::text||'|'||
          supply_cost::float8::text||'|'||wholesale_price::float8::text as line
   from pricing.gas_wholesale_price) w
+group by effective_from
 union all
 -- 기후환경요금 · 연료비조정단가
 select '부가요금', count(*), md5(string_agg(line, E'\\n' order by line)) from (
@@ -125,7 +128,22 @@ union all
 select '기타단가', count(*), md5(string_agg(line, E'\\n' order by line)) from (
   select slug||'|'||category||'|'||name||'|'||unit_price::float8::text||'|'||
          price_unit||'|'||base_date::text as line
-  from pricing.misc_price) mp;"""
+  from pricing.misc_price) mp
+union all
+-- 도시가스 도매요금 월별
+select '도시가스 도매', count(*), md5(string_agg(line, E'\\n' order by line)) from (
+  select effective_from::text||'|'||use_category||'|'||use_detail||'|'||
+         won_per_mj::float8::text as line
+  from pricing.citygas_wholesale_monthly) cw
+union all
+-- 도시가스 소매요금 월별 (연도별로 나눠서 JSON 파일과 맞춘다)
+select '도시가스 소매 '||to_char(effective_from,'YYYY'), count(*),
+       md5(string_agg(line, E'\\n' order by line)) from (
+  select effective_from,
+         effective_from::text||'|'||region||'|'||use_category||'|'||use_detail||'|'||
+         won_per_mj::float8::text as line
+  from pricing.citygas_retail_monthly) cr
+group by to_char(effective_from,'YYYY');"""
 
 def equipment_lines(doc: dict) -> list[str]:
     return ["|".join([i["slug"], i["category"], i.get("subcategory") or "",
@@ -140,7 +158,19 @@ def misc_lines(doc: dict) -> list[str]:
             for i in doc.get("items", [])]
 
 
+def citygas_wholesale_lines(doc: dict) -> list[str]:
+    return ["|".join([i["effective_from"], i["use_category"], i["use_detail"],
+                      pg(i["won_per_mj"])]) for i in doc["items"]]
+
+
+def citygas_retail_lines(doc: dict) -> list[str]:
+    return ["|".join([i["effective_from"], i["region"], i["use_category"],
+                      i["use_detail"], pg(i["won_per_mj"])]) for i in doc["items"]]
+
+
 BUILDERS = {
+    "citygas_wholesale_monthly": ("도시가스 도매", citygas_wholesale_lines),
+    "citygas_retail_monthly": ("도시가스 소매", citygas_retail_lines),
     "kepco_electricity_tariff": ("전기요금", electricity_lines),
     "renewable_equipment_price": ("장비단가", equipment_lines),
     "misc_price": ("기타단가", misc_lines),
@@ -169,6 +199,11 @@ def main() -> None:
                 lines = electricity_lines(doc, tariffs)
                 print(f"{label + ' ' + eff:<22} {len(lines):>6}  {digest(lines)}")
             continue
+        if label == "도시가스 소매":
+            label += " " + str(doc["meta"]["year"])
+        if label == "가스 도매요금":
+            # 스냅샷이 여러 시점이 되면 시행일로 나눠야 DB 와 대조된다
+            label += " " + doc["meta"]["effective_from"]
         lines = build(doc)
         print(f"{label:<22} {len(lines):>6}  {digest(lines)}")
     print("\nDB 쪽 값은 `python3 scripts/checksum.py --sql` 의 SQL 로 확인하세요.")
