@@ -242,6 +242,70 @@ python3 scripts/checksum.py --sql # 이 SQL 을 SQL Editor 에서 실행
 > 💡 SQL 이 너무 길어 한 번에 안 들어가면(특히 전기요금은 320행) 파일을 나눠서 실행해도 됩니다.
 > `insert ... values` 한 덩어리를 중간에서 자르지만 않으면 됩니다.
 
+### 수만 행을 한꺼번에 넣어야 할 때 — GitHub 에서 DB 가 직접 읽게 하기
+
+도시가스 소매요금처럼 **수만 행**이면 SQL 을 붙여넣는 방식이 한계에 부딪힙니다.
+(소매요금은 67,181행 = 생 SQL 로 5MB 가 넘습니다.)
+
+이때는 **DB 가 GitHub 에서 JSON 을 직접 읽어가게** 하는 편이 훨씬 빠르고 안전합니다.
+이 저장소는 공개이므로 `raw.githubusercontent.com` 주소로 바로 받을 수 있습니다.
+
+```sql
+-- 1) HTTP 확장을 임시로 켭니다
+create extension if not exists http with schema extensions;
+
+-- 2) JSON 을 읽어 그대로 적재합니다 (여러 해를 한 번에 넣어도 됩니다)
+with urls(u) as (values
+ ('https://raw.githubusercontent.com/jlaw080-ops/energy-price-db/main/data/gas/citygas_%EC%86%8C%EB%A7%A4%EC%9A%94%EA%B8%88_2026.json')),
+resp as (select (extensions.http_get(u)).content as body from urls)
+insert into pricing.citygas_retail_monthly
+       (effective_from, region, use_category, use_detail, won_per_mj)
+select (x->>'effective_from')::date, x->>'region', x->>'use_category',
+       coalesce(x->>'use_detail',''), (x->>'won_per_mj')::numeric
+from resp, jsonb_array_elements((resp.body::jsonb)->'items') as x
+on conflict (effective_from,region,use_category,use_detail)
+do update set won_per_mj = excluded.won_per_mj;
+
+-- 3) 다 끝나면 확장을 반드시 제거합니다
+drop extension if exists http;
+```
+
+**주의할 점**
+
+- 파일 이름에 한글이 있으면 주소를 URL 인코딩해야 합니다
+  (`소매요금` → `%EC%86%8C%EB%A7%A4%EC%9A%94%EA%B8%88`).
+  `python3 -c "import urllib.parse;print(urllib.parse.quote('파일명'))"` 로 변환하세요.
+- `http` 확장은 **DB 가 외부로 접속할 수 있게** 만드는 기능입니다.
+  적재가 끝나면 바로 `drop extension` 하고, `anon`·`authenticated` 에는
+  절대 실행 권한을 주지 마세요.
+- 한 번에 3~4개 파일까지가 안전합니다(한 쿼리 안에서 받는 양이 너무 커지면 시간이 초과됩니다).
+- 넣은 뒤에는 **반드시 아래 체크섬으로 대조**하세요. 행수만 맞아도 값이 틀릴 수 있습니다.
+
+```sql
+select to_char(effective_from,'YYYY') as 연도, count(*) as 행수,
+       md5(string_agg(line, E'\n' order by line)) as 체크섬
+from (
+  select effective_from,
+         effective_from::text||'|'||region||'|'||use_category||'|'||use_detail||'|'||
+         won_per_mj::float8::text as line
+  from pricing.citygas_retail_monthly) cr
+group by to_char(effective_from,'YYYY') order by 1;
+```
+
+`python3 scripts/checksum.py` 가 내놓는 연도별 값과 **행수·체크섬이 모두 같아야** 합니다.
+
+> 📌 2026-11 적재 기록: 11개 연도 67,181행, 체크섬 11개 모두 일치.
+
+### 긴 SQL 을 쪼개 보낼 때 조심할 것
+
+압축해서 보내려고 `unnest(array[...], array[...])` 처럼 **배열 여러 개를 나란히** 쓸 때,
+Postgres 는 길이가 다른 배열을 **짧은 쪽에 NULL 을 채워** 맞춥니다.
+그래서 긴 SQL 이 중간에 잘려도 **에러 없이 조용히 일부만 들어갑니다.**
+
+- 배열은 길이가 같은지 보내기 전에 확인하세요.
+- 값이 들어가는 칸에는 `not null` 제약을 걸어두세요. 잘리면 적재가 실패해서 바로 알 수 있습니다.
+- 그래도 최종 확인은 체크섬입니다.
+
 ### 다른 앱에서 REST API 로 읽으려면
 
 `pricing` 스키마는 기본적으로 REST API 에 공개돼 있지 않습니다.
