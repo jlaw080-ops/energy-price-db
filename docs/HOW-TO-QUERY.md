@@ -402,7 +402,7 @@ select * from pricing.calc_seasonal_bill(
 |---|---|---:|
 | `citygas_wholesale_monthly` | 도매요금 (전국 단일) | 2,499 |
 | `citygas_retail_monthly` | 소매요금 (시·도별) | 67,181 |
-| `citygas_retail_region` | 지역별 공급회사·기본요금 | — |
+| `citygas_retail_region` | 지역별 공급회사·기본요금 | 2,889 |
 
 ```sql
 -- 연료전지용 도매요금 추이 (2019-05 신설 이후 80개 시점)
@@ -454,6 +454,131 @@ from citygas_wholesale_monthly where note is not null;
 **연료전지용**. 계절이 나뉘는 용도는 `use_detail` 이 동절기/하절기/기타월입니다.
 
 연료전지용은 **2019-05-01 신설**이라 그 이전 시점에는 없습니다.
+
+👉 연료전지 경제성분석에 바로 쓰는 쿼리는 **§11** 에 따로 모았습니다. 2020-07-01 이상값 주의사항도 거기 있습니다.
+
+---
+
+## 11. 연료전지용 가스요금 — 경제성분석에 바로 쓰기
+
+연료전지(PAFC·PEMFC·SOFC) 경제성분석의 연료비는 **연료전지용 소매요금**입니다.
+2019-05-01 신설이라 그 이전 시점은 없고, 지역별로 93개 시행일 중 최대 80개가 들어 있습니다.
+
+### ⚠️ 먼저 — 2020-07-01 은 그대로 쓰면 안 됩니다
+
+원본 공시 엑셀(`200701 요금표(도매인하)_소매반영_공시.xlsx`)의 연료전지용 열에는
+**총 요율이 아니라 지역 공급비용만** 인쇄돼 있습니다. 그래서 그 시행일 31개 지역의 값이
+0.35~0.78원/MJ 로, 실제 요율의 **1/14 수준**입니다. 추출기는 인쇄된 값을 그대로 읽었습니다.
+
+해당 31행에는 `note` 가 붙어 있으니, **집계할 때는 `note is null` 로 걸러내세요.**
+
+```sql
+-- 이상값 확인: 소매가 도매보다 낮은 행은 정상이면 있을 수 없다
+select r.effective_from, r.region, r.won_per_mj as 소매, w.won_per_mj as 도매
+from citygas_retail_monthly r
+join citygas_wholesale_monthly w
+  on w.effective_from = r.effective_from
+ and w.use_category = r.use_category and w.use_detail = r.use_detail
+where r.won_per_mj < w.won_per_mj;
+-- → 2020-07-01 연료전지용 31행만 나옵니다
+```
+
+추정 총요율이 필요하면 `도매 + 그 값` 으로 복원할 수 있습니다. 비교 가능한 27개 지역 중
+26개가 2020-08-01 공급비용과 정확히 일치해 이 방법이 맞다는 것을 확인했습니다
+(경기도만 그 사이 공급비용이 0.6584 → 0.7291 로 바뀌어 다릅니다).
+
+```sql
+-- 2020-07-01 연료전지용 총요율 복원
+select r.region, round(w.won_per_mj + r.won_per_mj, 4) as 추정_원_per_MJ
+from citygas_retail_monthly r
+join citygas_wholesale_monthly w
+  on w.effective_from = r.effective_from
+ and w.use_category = '연료전지용' and w.use_detail = ''
+where r.effective_from = '2020-07-01' and r.use_category = '연료전지용'
+order by r.region;
+```
+
+### 지금 적용되는 지역별 요금
+
+```sql
+with latest as (
+  select region, max(effective_from) as d
+  from citygas_retail_monthly
+  where use_category = '연료전지용' and effective_from <= current_date
+  group by region)
+select r.region, r.effective_from, r.won_per_mj
+from citygas_retail_monthly r
+join latest l on l.region = r.region and l.d = r.effective_from
+where r.use_category = '연료전지용'
+order by r.won_per_mj;
+```
+
+2026-11-01 기준 육지는 **24.84 ~ 25.61원/MJ** 로 좁습니다
+(가장 싼 곳 광주시 24.8402, 가장 비싼 곳 서울특별시 25.6106, 차이 0.77원/MJ).
+
+**제주는 30.9646원/MJ 로 육지보다 5~6원/MJ 비쌉니다.** 전국 평균을 쓰면 제주 사업은
+연료비를 20% 넘게 과소평가하게 됩니다. 사업지가 정해졌으면 반드시 **그 지역 값**을 쓰세요.
+제주는 2025-12-01 신설이라 그 이전 시점이 없습니다(12개 시행일).
+
+> ⚠️ 2026-11-01 시점은 §10 의 도매요금 주의사항이 함께 걸립니다. 원본 엑셀의 도매란이
+> 10월 값 그대로여서, **2026-10-01 과 2026-11-01 소매요금이 완전히 같습니다**
+> (서울 둘 다 25.6106). 11월 도매 인상이 반영돼 있지 않다는 뜻이므로, 10월 값으로
+> 바꿔도 소용없고 `gas_wholesale_price`(연료전지용 25.0573원/MJ)로 도매분을 보정해야 합니다.
+
+### 연도별 추이
+
+```sql
+select to_char(effective_from,'YYYY') as 연도,
+       count(*) as 시행일수,
+       round(avg(won_per_mj),2) as 연평균,
+       round(min(won_per_mj),2) as 최저,
+       round(max(won_per_mj),2) as 최고
+from citygas_retail_monthly
+where region = '서울특별시' and use_category = '연료전지용'
+  and note is null              -- 2020-07-01 이상값 제외
+group by 1 order by 1;
+```
+
+서울 기준 연평균(원/MJ): 2019 12.78 → 2020 9.53 → 2021 13.26 → **2022 24.82** →
+2023 21.07 → 2024 19.56 → 2025 16.92 → 2026 20.06.
+2022년 급등(러시아-우크라이나 전쟁 LNG 가격 급등)이 뚜렷하니, **LCOE 를 계산할 때
+한 시점 단가로 전 기간을 깔지 마세요.** 기간 평균이나 시나리오를 쓰는 편이 안전합니다.
+
+### 공급비용(지역 마진)만 뽑기
+
+도매는 전국 단일이므로, 소매 − 도매 = 그 지역 도시가스사의 공급비용입니다.
+
+```sql
+select r.region, r.effective_from,
+       round(r.won_per_mj - w.won_per_mj, 4) as 공급비용
+from citygas_retail_monthly r
+join citygas_wholesale_monthly w
+  on w.effective_from = r.effective_from
+ and w.use_category = r.use_category and w.use_detail = r.use_detail
+where r.use_category = '연료전지용' and r.note is null
+  and r.effective_from = '2026-10-01'
+order by 공급비용;
+```
+
+### 연료전지 연료비 단가로 변환
+
+요금은 **원/MJ, 부가세 별도**입니다. 발전효율로 나누면 발전량 기준 연료비가 나옵니다.
+
+```sql
+-- 예: 서울, SOFC 발전효율 50% 가정 → 원/kWh(발전량)
+select effective_from,
+       won_per_mj                                as 원_per_MJ,
+       round(won_per_mj * 3.6, 2)                as 원_per_kWh_입력,
+       round(won_per_mj * 3.6 / 0.50, 2)         as 원_per_kWh_발전
+from citygas_retail_monthly
+where region = '서울특별시' and use_category = '연료전지용'
+  and note is null
+order by effective_from desc limit 12;
+```
+
+1 kWh = 3.6 MJ 입니다. 서울·2026-11-01 기준으로 입력열 **92.20원/kWh**,
+발전효율 50% 가정 시 발전량 기준 **184.40원/kWh** (부가세 별도)가 나옵니다.
+부가세 10% 와 열회수분 공제는 별도로 반영하세요.
 
 ---
 
