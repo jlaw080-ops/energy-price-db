@@ -200,6 +200,48 @@ python3 scripts/fetch_odcloud.py
 
 ---
 
+### 원본 공시가 잘못 인쇄된 칸을 고칠 때
+
+공시 엑셀 자체가 틀린 경우가 있습니다. 2020-07-01 요금표의 연료전지용 열에는 총 요율이
+아니라 **지역 공급비용만** 인쇄돼 있어, 31개 지역 값이 실제의 1/14 수준이었습니다.
+
+이런 보정은 **손으로 JSON 을 고치지 마세요.** 추출기를 다시 돌리면 되돌아갑니다.
+`scripts/build_citygas_datasets.py` 의 `CORRECTIONS` 테이블에 규칙을 적으면,
+빌드할 때마다 자동으로 적용됩니다.
+
+```python
+CORRECTIONS = [{
+  "effective_from": "2020-07-01",
+  "use_category": "연료전지용",
+  "rule": "add_wholesale",   # 인쇄값이 공급비용뿐 → 총요율 = 도매 + 인쇄값
+  "what": "...무엇이 잘못됐나...",
+  "evidence": "...엑셀 몇 행 몇 열에서 확인했는지, 어떻게 교차검증했는지...",
+}]
+```
+
+규칙이 하는 일:
+- 원래 인쇄값을 `source_won_per_mj` 에 보존합니다 (출처를 잃지 않습니다)
+- 항목에 `note` 를, `meta.corrections` 에 근거를 적습니다
+- 이미 보정된 행은 건드리지 않습니다 (두 번 돌려도 안전)
+
+raw.json 이 없어도 이미 만들어진 JSON 에 적용할 수 있습니다.
+
+```bash
+python3 scripts/build_citygas_datasets.py --fix-existing data/gas
+python3 scripts/checksum.py        # 바뀐 연도 체크섬 확인 후 DB 와 대조
+```
+
+**보정한 뒤에는 DB 도 같이 고쳐야 합니다.** 그러지 않으면 체크섬이 어긋납니다.
+건전성 점검으로 "소매 < 도매" 행을 세어 보세요 — 정상이면 0건입니다.
+
+```sql
+select count(*) from pricing.citygas_retail_monthly r
+join pricing.citygas_wholesale_monthly w
+  on w.effective_from=r.effective_from
+ and w.use_category=r.use_category and w.use_detail=r.use_detail
+where r.won_per_mj < w.won_per_mj;
+```
+
 ## 3. 신재생 장비·기타 단가를 추가할 때
 
 `data/renewable-equipment/장비단가_YYYY.json` 의 `items` 배열에 추가합니다.

@@ -455,7 +455,7 @@ from citygas_wholesale_monthly where note is not null;
 
 연료전지용은 **2019-05-01 신설**이라 그 이전 시점에는 없습니다.
 
-👉 연료전지 경제성분석에 바로 쓰는 쿼리는 **§11** 에 따로 모았습니다. 2020-07-01 이상값 주의사항도 거기 있습니다.
+👉 연료전지 경제성분석에 바로 쓰는 쿼리는 **§11** 에 따로 모았습니다. 2020-07-01 복원 내역도 거기 있습니다.
 
 ---
 
@@ -464,38 +464,31 @@ from citygas_wholesale_monthly where note is not null;
 연료전지(PAFC·PEMFC·SOFC) 경제성분석의 연료비는 **연료전지용 소매요금**입니다.
 2019-05-01 신설이라 그 이전 시점은 없고, 지역별로 93개 시행일 중 최대 80개가 들어 있습니다.
 
-### ⚠️ 먼저 — 2020-07-01 은 그대로 쓰면 안 됩니다
+### 2020-07-01 은 복원된 값입니다
 
 원본 공시 엑셀(`200701 요금표(도매인하)_소매반영_공시.xlsx`)의 연료전지용 열에는
-**총 요율이 아니라 지역 공급비용만** 인쇄돼 있습니다. 그래서 그 시행일 31개 지역의 값이
-0.35~0.78원/MJ 로, 실제 요율의 **1/14 수준**입니다. 추출기는 인쇄된 값을 그대로 읽었습니다.
+**총 요율이 아니라 지역 공급비용만** 인쇄돼 있었습니다(요금표(MJ) 시트 4행=도매 9.8664,
+5행 서울=0.7599). 그대로 두면 31개 지역 값이 0.35~0.78원/MJ, 실제 요율의 1/14 수준이 됩니다.
 
-해당 31행에는 `note` 가 붙어 있으니, **집계할 때는 `note is null` 로 걸러내세요.**
+**지금은 `총요율 = 도매 9.8664 + 인쇄값` 으로 복원해 두었습니다** (10.2182~10.6475원/MJ).
+비교 가능한 27개 지역 중 26개가 2020-08-01 공급비용과 정확히 일치해 복원 방법을 확인했습니다
+(경기도만 그 사이 공급비용이 0.6584 → 0.7291 로 바뀌어 다릅니다).
+
+**그래서 집계할 때 걸러낼 필요가 없습니다.** 그냥 쓰세요.
+
+- 복원된 31행에는 `note` 가 붙어 있습니다 — 값을 빼라는 표시가 아니라 **출처 설명**입니다.
+- 원래 인쇄값은 JSON 원본(`data/gas/citygas_소매요금_2020.json`)의 `source_won_per_mj`
+  필드와 `meta.corrections` 에 보존돼 있습니다.
 
 ```sql
--- 이상값 확인: 소매가 도매보다 낮은 행은 정상이면 있을 수 없다
+-- 건전성 점검: 소매가 도매보다 낮은 행은 정상이면 있을 수 없다
 select r.effective_from, r.region, r.won_per_mj as 소매, w.won_per_mj as 도매
 from citygas_retail_monthly r
 join citygas_wholesale_monthly w
   on w.effective_from = r.effective_from
  and w.use_category = r.use_category and w.use_detail = r.use_detail
 where r.won_per_mj < w.won_per_mj;
--- → 2020-07-01 연료전지용 31행만 나옵니다
-```
-
-추정 총요율이 필요하면 `도매 + 그 값` 으로 복원할 수 있습니다. 비교 가능한 27개 지역 중
-26개가 2020-08-01 공급비용과 정확히 일치해 이 방법이 맞다는 것을 확인했습니다
-(경기도만 그 사이 공급비용이 0.6584 → 0.7291 로 바뀌어 다릅니다).
-
-```sql
--- 2020-07-01 연료전지용 총요율 복원
-select r.region, round(w.won_per_mj + r.won_per_mj, 4) as 추정_원_per_MJ
-from citygas_retail_monthly r
-join citygas_wholesale_monthly w
-  on w.effective_from = r.effective_from
- and w.use_category = '연료전지용' and w.use_detail = ''
-where r.effective_from = '2020-07-01' and r.use_category = '연료전지용'
-order by r.region;
+-- → 복원 후에는 0건입니다. 1건이라도 나오면 적재가 잘못된 것입니다.
 ```
 
 ### 지금 적용되는 지역별 요금
@@ -535,11 +528,10 @@ select to_char(effective_from,'YYYY') as 연도,
        round(max(won_per_mj),2) as 최고
 from citygas_retail_monthly
 where region = '서울특별시' and use_category = '연료전지용'
-  and note is null              -- 2020-07-01 이상값 제외
 group by 1 order by 1;
 ```
 
-서울 기준 연평균(원/MJ): 2019 12.78 → 2020 9.53 → 2021 13.26 → **2022 24.82** →
+서울 기준 연평균(원/MJ): 2019 12.78 → 2020 9.71 → 2021 13.26 → **2022 24.82** →
 2023 21.07 → 2024 19.56 → 2025 16.92 → 2026 20.06.
 2022년 급등(러시아-우크라이나 전쟁 LNG 가격 급등)이 뚜렷하니, **LCOE 를 계산할 때
 한 시점 단가로 전 기간을 깔지 마세요.** 기간 평균이나 시나리오를 쓰는 편이 안전합니다.
@@ -555,7 +547,7 @@ from citygas_retail_monthly r
 join citygas_wholesale_monthly w
   on w.effective_from = r.effective_from
  and w.use_category = r.use_category and w.use_detail = r.use_detail
-where r.use_category = '연료전지용' and r.note is null
+where r.use_category = '연료전지용'
   and r.effective_from = '2026-10-01'
 order by 공급비용;
 ```
@@ -572,7 +564,6 @@ select effective_from,
        round(won_per_mj * 3.6 / 0.50, 2)         as 원_per_kWh_발전
 from citygas_retail_monthly
 where region = '서울특별시' and use_category = '연료전지용'
-  and note is null
 order by effective_from desc limit 12;
 ```
 
