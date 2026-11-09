@@ -1,0 +1,1636 @@
+{
+  "meta": {
+    "dataset": "kogas_power_generation_monthly",
+    "title": "한국가스공사 발전용 천연가스요금 (월별)",
+    "provider": "한국가스공사",
+    "source_file": "단가정보/가스요금/2022-12-01_한국가스공사_발전용천연가스요금.csv",
+    "source_portal": "공공데이터포털 (data.go.kr)",
+    "currency": "KRW",
+    "period_start": "2008-01",
+    "period_end": "2022-12",
+    "record_count": 180,
+    "converted_at": "2026-10-23"
+  },
+  "series": [
+    {
+      "month": "2008-01",
+      "feedstock_cost_won_per_nm3": 523.14,
+      "supply_cost_won_per_nm3": 49.16,
+      "feedstock_cost_won_per_gj": 12014.39,
+      "supply_cost_won_per_gj": 1128.95,
+      "total_won_per_nm3": 572.3,
+      "total_won_per_gj": 13143.34
+    },
+    {
+      "month": "2008-02",
+      "feedstock_cost_won_per_nm3": 560.82,
+      "supply_cost_won_per_nm3": 49.16,
+      "feedstock_cost_won_per_gj": 12879.8,
+      "supply_cost_won_per_gj": 1128.95,
+      "total_won_per_nm3": 609.98,
+      "total_won_per_gj": 14008.75
+    },
+    {
+      "month": "2008-03",
+      "feedstock_cost_won_per_nm3": 559.81,
+      "supply_cost_won_per_nm3": 49.16,
+      "feedstock_cost_won_per_gj": 12856.52,
+      "supply_cost_won_per_gj": 1128.95,
+      "total_won_per_nm3": 608.97,
+      "total_won_per_gj": 13985.47
+    },
+    {
+      "month": "2008-04",
+      "feedstock_cost_won_per_nm3": 630.47,
+      "supply_cost_won_per_nm3": 28.03,
+      "feedstock_cost_won_per_gj": 14479.25,
+      "supply_cost_won_per_gj": 643.73,
+      "total_won_per_nm3": 658.5,
+      "total_won_per_gj": 15122.98
+    },
+    {
+      "month": "2008-05",
+      "feedstock_cost_won_per_nm3": 670.79,
+      "supply_cost_won_per_nm3": 28.03,
+      "feedstock_cost_won_per_gj": 15405.23,
+      "supply_cost_won_per_gj": 643.73,
+      "total_won_per_nm3": 698.82,
+      "total_won_per_gj": 16048.96
+    },
+    {
+      "month": "2008-06",
+      "feedstock_cost_won_per_nm3": 700.1,
+      "supply_cost_won_per_nm3": 21.38,
+      "feedstock_cost_won_per_gj": 16078.48,
+      "supply_cost_won_per_gj": 491.09,
+      "total_won_per_nm3": 721.48,
+      "total_won_per_gj": 16569.57
+    },
+    {
+      "month": "2008-07",
+      "feedstock_cost_won_per_nm3": 748.59,
+      "supply_cost_won_per_nm3": 21.38,
+      "feedstock_cost_won_per_gj": 17192.07,
+      "supply_cost_won_per_gj": 491.09,
+      "total_won_per_nm3": 769.97,
+      "total_won_per_gj": 17683.16
+    },
+    {
+      "month": "2008-08",
+      "feedstock_cost_won_per_nm3": 770.2,
+      "supply_cost_won_per_nm3": 21.38,
+      "feedstock_cost_won_per_gj": 17688.4,
+      "supply_cost_won_per_gj": 491.09,
+      "total_won_per_nm3": 791.58,
+      "total_won_per_gj": 18179.49
+    },
+    {
+      "month": "2008-09",
+      "feedstock_cost_won_per_nm3": 878.63,
+      "supply_cost_won_per_nm3": 21.38,
+      "feedstock_cost_won_per_gj": 20178.64,
+      "supply_cost_won_per_gj": 491.09,
+      "total_won_per_nm3": 900.01,
+      "total_won_per_gj": 20669.73
+    },
+    {
+      "month": "2008-10",
+      "feedstock_cost_won_per_nm3": 912.93,
+      "supply_cost_won_per_nm3": 28.03,
+      "feedstock_cost_won_per_gj": 20966.22,
+      "supply_cost_won_per_gj": 643.73,
+      "total_won_per_nm3": 940.96,
+      "total_won_per_gj": 21609.95
+    },
+    {
+      "month": "2008-11",
+      "feedstock_cost_won_per_nm3": 979.73,
+      "supply_cost_won_per_nm3": 28.03,
+      "feedstock_cost_won_per_gj": 22500.49,
+      "supply_cost_won_per_gj": 643.73,
+      "total_won_per_nm3": 1007.76,
+      "total_won_per_gj": 23144.22
+    },
+    {
+      "month": "2008-12",
+      "feedstock_cost_won_per_nm3": 953.43,
+      "supply_cost_won_per_nm3": 49.16,
+      "feedstock_cost_won_per_gj": 21896.44,
+      "supply_cost_won_per_gj": 1128.95,
+      "total_won_per_nm3": 1002.59,
+      "total_won_per_gj": 23025.39
+    },
+    {
+      "month": "2009-01",
+      "feedstock_cost_won_per_nm3": 713.16,
+      "supply_cost_won_per_nm3": 49.16,
+      "feedstock_cost_won_per_gj": 16378.38,
+      "supply_cost_won_per_gj": 1128.95,
+      "total_won_per_nm3": 762.32,
+      "total_won_per_gj": 17507.33
+    },
+    {
+      "month": "2009-02",
+      "feedstock_cost_won_per_nm3": 669.76,
+      "supply_cost_won_per_nm3": 49.16,
+      "feedstock_cost_won_per_gj": 15381.63,
+      "supply_cost_won_per_gj": 1128.95,
+      "total_won_per_nm3": 718.92,
+      "total_won_per_gj": 16510.58
+    },
+    {
+      "month": "2009-03",
+      "feedstock_cost_won_per_nm3": 568.91,
+      "supply_cost_won_per_nm3": 49.16,
+      "feedstock_cost_won_per_gj": 13065.64,
+      "supply_cost_won_per_gj": 1128.95,
+      "total_won_per_nm3": 618.07,
+      "total_won_per_gj": 14194.59
+    },
+    {
+      "month": "2009-04",
+      "feedstock_cost_won_per_nm3": 459.07,
+      "supply_cost_won_per_nm3": 28.03,
+      "feedstock_cost_won_per_gj": 10543.01,
+      "supply_cost_won_per_gj": 643.73,
+      "total_won_per_nm3": 487.1,
+      "total_won_per_gj": 11186.74
+    },
+    {
+      "month": "2009-05",
+      "feedstock_cost_won_per_nm3": 396.62,
+      "supply_cost_won_per_nm3": 28.03,
+      "feedstock_cost_won_per_gj": 9108.75,
+      "supply_cost_won_per_gj": 643.73,
+      "total_won_per_nm3": 424.65,
+      "total_won_per_gj": 9752.48
+    },
+    {
+      "month": "2009-06",
+      "feedstock_cost_won_per_nm3": 485.47,
+      "supply_cost_won_per_nm3": 44.09,
+      "feedstock_cost_won_per_gj": 11149.32,
+      "supply_cost_won_per_gj": 1012.6,
+      "total_won_per_nm3": 529.56,
+      "total_won_per_gj": 12161.92
+    },
+    {
+      "month": "2009-07",
+      "feedstock_cost_won_per_nm3": 454.08,
+      "supply_cost_won_per_nm3": 22.71,
+      "feedstock_cost_won_per_gj": 10428.42,
+      "supply_cost_won_per_gj": 521.51,
+      "total_won_per_nm3": 476.79,
+      "total_won_per_gj": 10949.93
+    },
+    {
+      "month": "2009-08",
+      "feedstock_cost_won_per_nm3": 508.65,
+      "supply_cost_won_per_nm3": 22.71,
+      "feedstock_cost_won_per_gj": 11681.58,
+      "supply_cost_won_per_gj": 521.51,
+      "total_won_per_nm3": 531.36,
+      "total_won_per_gj": 12203.09
+    },
+    {
+      "month": "2009-09",
+      "feedstock_cost_won_per_nm3": 598.01,
+      "supply_cost_won_per_nm3": 22.71,
+      "feedstock_cost_won_per_gj": 13733.9,
+      "supply_cost_won_per_gj": 521.51,
+      "total_won_per_nm3": 620.72,
+      "total_won_per_gj": 14255.41
+    },
+    {
+      "month": "2009-10",
+      "feedstock_cost_won_per_nm3": 543.45,
+      "supply_cost_won_per_nm3": 26.85,
+      "feedstock_cost_won_per_gj": 12480.83,
+      "supply_cost_won_per_gj": 616.72,
+      "total_won_per_nm3": 570.3,
+      "total_won_per_gj": 13097.55
+    },
+    {
+      "month": "2009-11",
+      "feedstock_cost_won_per_nm3": 553.24,
+      "supply_cost_won_per_nm3": 26.85,
+      "feedstock_cost_won_per_gj": 12705.64,
+      "supply_cost_won_per_gj": 616.72,
+      "total_won_per_nm3": 580.09,
+      "total_won_per_gj": 13322.36
+    },
+    {
+      "month": "2009-12",
+      "feedstock_cost_won_per_nm3": 550.67,
+      "supply_cost_won_per_nm3": 60.65,
+      "feedstock_cost_won_per_gj": 12646.74,
+      "supply_cost_won_per_gj": 1392.8,
+      "total_won_per_nm3": 611.32,
+      "total_won_per_gj": 14039.54
+    },
+    {
+      "month": "2010-01",
+      "feedstock_cost_won_per_nm3": 551.63,
+      "supply_cost_won_per_nm3": 60.65,
+      "feedstock_cost_won_per_gj": 12668.8,
+      "supply_cost_won_per_gj": 1392.8,
+      "total_won_per_nm3": 612.28,
+      "total_won_per_gj": 14061.6
+    },
+    {
+      "month": "2010-02",
+      "feedstock_cost_won_per_nm3": 520.61,
+      "supply_cost_won_per_nm3": 60.65,
+      "feedstock_cost_won_per_gj": 11956.22,
+      "supply_cost_won_per_gj": 1392.8,
+      "total_won_per_nm3": 581.26,
+      "total_won_per_gj": 13349.02
+    },
+    {
+      "month": "2010-03",
+      "feedstock_cost_won_per_nm3": 555.38,
+      "supply_cost_won_per_nm3": 60.65,
+      "feedstock_cost_won_per_gj": 12754.93,
+      "supply_cost_won_per_gj": 1392.8,
+      "total_won_per_nm3": 616.03,
+      "total_won_per_gj": 14147.73
+    },
+    {
+      "month": "2010-04",
+      "feedstock_cost_won_per_nm3": 602.58,
+      "supply_cost_won_per_nm3": 26.85,
+      "feedstock_cost_won_per_gj": 13838.72,
+      "supply_cost_won_per_gj": 616.72,
+      "total_won_per_nm3": 629.43,
+      "total_won_per_gj": 14455.44
+    },
+    {
+      "month": "2010-05",
+      "feedstock_cost_won_per_nm3": 612.86,
+      "supply_cost_won_per_nm3": 26.85,
+      "feedstock_cost_won_per_gj": 14074.89,
+      "supply_cost_won_per_gj": 616.72,
+      "total_won_per_nm3": 639.71,
+      "total_won_per_gj": 14691.61
+    },
+    {
+      "month": "2010-06",
+      "feedstock_cost_won_per_nm3": 627.45,
+      "supply_cost_won_per_nm3": 22.71,
+      "feedstock_cost_won_per_gj": 14410.1,
+      "supply_cost_won_per_gj": 521.51,
+      "total_won_per_nm3": 650.16,
+      "total_won_per_gj": 14931.61
+    },
+    {
+      "month": "2010-07",
+      "feedstock_cost_won_per_nm3": 658.75,
+      "supply_cost_won_per_nm3": 22.71,
+      "feedstock_cost_won_per_gj": 15128.78,
+      "supply_cost_won_per_gj": 521.51,
+      "total_won_per_nm3": 681.46,
+      "total_won_per_gj": 15650.29
+    },
+    {
+      "month": "2010-08",
+      "feedstock_cost_won_per_nm3": 615.68,
+      "supply_cost_won_per_nm3": 22.71,
+      "feedstock_cost_won_per_gj": 14139.76,
+      "supply_cost_won_per_gj": 521.51,
+      "total_won_per_nm3": 638.39,
+      "total_won_per_gj": 14661.27
+    },
+    {
+      "month": "2010-09",
+      "feedstock_cost_won_per_nm3": 588.94,
+      "supply_cost_won_per_nm3": 25.03,
+      "feedstock_cost_won_per_gj": 13525.62,
+      "supply_cost_won_per_gj": 574.93,
+      "total_won_per_nm3": 613.97,
+      "total_won_per_gj": 14100.55
+    },
+    {
+      "month": "2010-10",
+      "feedstock_cost_won_per_nm3": 545.27,
+      "supply_cost_won_per_nm3": 28.26,
+      "feedstock_cost_won_per_gj": 12522.62,
+      "supply_cost_won_per_gj": 649.13,
+      "total_won_per_nm3": 573.53,
+      "total_won_per_gj": 13171.75
+    },
+    {
+      "month": "2010-11",
+      "feedstock_cost_won_per_nm3": 542.74,
+      "supply_cost_won_per_nm3": 28.26,
+      "feedstock_cost_won_per_gj": 12464.47,
+      "supply_cost_won_per_gj": 649.13,
+      "total_won_per_nm3": 571.0,
+      "total_won_per_gj": 13113.6
+    },
+    {
+      "month": "2010-12",
+      "feedstock_cost_won_per_nm3": 566.17,
+      "supply_cost_won_per_nm3": 81.08,
+      "feedstock_cost_won_per_gj": 13002.59,
+      "supply_cost_won_per_gj": 1862.15,
+      "total_won_per_nm3": 647.25,
+      "total_won_per_gj": 14864.74
+    },
+    {
+      "month": "2011-01",
+      "feedstock_cost_won_per_nm3": 564.59,
+      "supply_cost_won_per_nm3": 81.08,
+      "feedstock_cost_won_per_gj": 12966.42,
+      "supply_cost_won_per_gj": 1862.15,
+      "total_won_per_nm3": 645.67,
+      "total_won_per_gj": 14828.57
+    },
+    {
+      "month": "2011-02",
+      "feedstock_cost_won_per_nm3": 571.65,
+      "supply_cost_won_per_nm3": 81.08,
+      "feedstock_cost_won_per_gj": 13128.47,
+      "supply_cost_won_per_gj": 1862.15,
+      "total_won_per_nm3": 652.73,
+      "total_won_per_gj": 14990.62
+    },
+    {
+      "month": "2011-03",
+      "feedstock_cost_won_per_nm3": 604.17,
+      "supply_cost_won_per_nm3": 81.08,
+      "feedstock_cost_won_per_gj": 13875.38,
+      "supply_cost_won_per_gj": 1862.15,
+      "total_won_per_nm3": 685.25,
+      "total_won_per_gj": 15737.53
+    },
+    {
+      "month": "2011-04",
+      "feedstock_cost_won_per_nm3": 651.02,
+      "supply_cost_won_per_nm3": 28.26,
+      "feedstock_cost_won_per_gj": 14951.28,
+      "supply_cost_won_per_gj": 649.13,
+      "total_won_per_nm3": 679.28,
+      "total_won_per_gj": 15600.41
+    },
+    {
+      "month": "2011-05",
+      "feedstock_cost_won_per_nm3": 655.23,
+      "supply_cost_won_per_nm3": 27.04,
+      "feedstock_cost_won_per_gj": 15048.01,
+      "supply_cost_won_per_gj": 621.0,
+      "total_won_per_nm3": 682.27,
+      "total_won_per_gj": 15669.01
+    },
+    {
+      "month": "2011-06",
+      "feedstock_cost_won_per_nm3": 709.84,
+      "supply_cost_won_per_nm3": 23.74,
+      "feedstock_cost_won_per_gj": 16302.12,
+      "supply_cost_won_per_gj": 545.28,
+      "total_won_per_nm3": 733.58,
+      "total_won_per_gj": 16847.4
+    },
+    {
+      "month": "2011-07",
+      "feedstock_cost_won_per_nm3": 698.15,
+      "supply_cost_won_per_nm3": 23.74,
+      "feedstock_cost_won_per_gj": 16033.68,
+      "supply_cost_won_per_gj": 545.28,
+      "total_won_per_nm3": 721.89,
+      "total_won_per_gj": 16578.96
+    },
+    {
+      "month": "2011-08",
+      "feedstock_cost_won_per_nm3": 696.29,
+      "supply_cost_won_per_nm3": 23.74,
+      "feedstock_cost_won_per_gj": 15991.07,
+      "supply_cost_won_per_gj": 545.28,
+      "total_won_per_nm3": 720.03,
+      "total_won_per_gj": 16536.35
+    },
+    {
+      "month": "2011-09",
+      "feedstock_cost_won_per_nm3": 679.94,
+      "supply_cost_won_per_nm3": 23.74,
+      "feedstock_cost_won_per_gj": 15615.55,
+      "supply_cost_won_per_gj": 545.28,
+      "total_won_per_nm3": 703.68,
+      "total_won_per_gj": 16160.83
+    },
+    {
+      "month": "2011-10",
+      "feedstock_cost_won_per_nm3": 752.11,
+      "supply_cost_won_per_nm3": 27.04,
+      "feedstock_cost_won_per_gj": 17272.94,
+      "supply_cost_won_per_gj": 621.0,
+      "total_won_per_nm3": 779.15,
+      "total_won_per_gj": 17893.94
+    },
+    {
+      "month": "2011-11",
+      "feedstock_cost_won_per_nm3": 721.98,
+      "supply_cost_won_per_nm3": 27.04,
+      "feedstock_cost_won_per_gj": 16580.88,
+      "supply_cost_won_per_gj": 621.0,
+      "total_won_per_nm3": 749.02,
+      "total_won_per_gj": 17201.88
+    },
+    {
+      "month": "2011-12",
+      "feedstock_cost_won_per_nm3": 733.72,
+      "supply_cost_won_per_nm3": 61.0,
+      "feedstock_cost_won_per_gj": 16850.53,
+      "supply_cost_won_per_gj": 1400.95,
+      "total_won_per_nm3": 794.72,
+      "total_won_per_gj": 18251.48
+    },
+    {
+      "month": "2012-01",
+      "feedstock_cost_won_per_nm3": 709.86,
+      "supply_cost_won_per_nm3": 61.0,
+      "feedstock_cost_won_per_gj": 16302.67,
+      "supply_cost_won_per_gj": 1400.95,
+      "total_won_per_nm3": 770.86,
+      "total_won_per_gj": 17703.62
+    },
+    {
+      "month": "2012-02",
+      "feedstock_cost_won_per_nm3": 741.13,
+      "supply_cost_won_per_nm3": 61.0,
+      "feedstock_cost_won_per_gj": 17020.74,
+      "supply_cost_won_per_gj": 1400.95,
+      "total_won_per_nm3": 802.13,
+      "total_won_per_gj": 18421.69
+    },
+    {
+      "month": "2012-03",
+      "feedstock_cost_won_per_nm3": 745.36,
+      "supply_cost_won_per_nm3": 61.0,
+      "feedstock_cost_won_per_gj": 17117.91,
+      "supply_cost_won_per_gj": 1400.95,
+      "total_won_per_nm3": 806.36,
+      "total_won_per_gj": 18518.86
+    },
+    {
+      "month": "2012-04",
+      "feedstock_cost_won_per_nm3": 831.87,
+      "supply_cost_won_per_nm3": 27.04,
+      "feedstock_cost_won_per_gj": 19104.71,
+      "supply_cost_won_per_gj": 621.0,
+      "total_won_per_nm3": 858.91,
+      "total_won_per_gj": 19725.71
+    },
+    {
+      "month": "2012-05",
+      "feedstock_cost_won_per_nm3": 870.68,
+      "supply_cost_won_per_nm3": 27.04,
+      "feedstock_cost_won_per_gj": 19996.09,
+      "supply_cost_won_per_gj": 621.0,
+      "total_won_per_nm3": 897.72,
+      "total_won_per_gj": 20617.09
+    },
+    {
+      "month": "2012-06",
+      "feedstock_cost_won_per_nm3": 938.33,
+      "supply_cost_won_per_nm3": 47.35,
+      "feedstock_cost_won_per_gj": 21549.74,
+      "supply_cost_won_per_gj": 1087.52,
+      "total_won_per_nm3": 985.68,
+      "total_won_per_gj": 22637.26
+    },
+    {
+      "month": "2012-07",
+      "feedstock_cost_won_per_nm3": 852.43,
+      "supply_cost_won_per_nm3": 23.61,
+      "feedstock_cost_won_per_gj": 19576.82,
+      "supply_cost_won_per_gj": 542.24,
+      "total_won_per_nm3": 876.04,
+      "total_won_per_gj": 20119.06
+    },
+    {
+      "month": "2012-08",
+      "feedstock_cost_won_per_nm3": 800.87,
+      "supply_cost_won_per_nm3": 23.61,
+      "feedstock_cost_won_per_gj": 18392.72,
+      "supply_cost_won_per_gj": 542.24,
+      "total_won_per_nm3": 824.48,
+      "total_won_per_gj": 18934.96
+    },
+    {
+      "month": "2012-09",
+      "feedstock_cost_won_per_nm3": 764.54,
+      "supply_cost_won_per_nm3": 23.61,
+      "feedstock_cost_won_per_gj": 17558.46,
+      "supply_cost_won_per_gj": 542.24,
+      "total_won_per_nm3": 788.15,
+      "total_won_per_gj": 18100.7
+    },
+    {
+      "month": "2012-10",
+      "feedstock_cost_won_per_nm3": 674.75,
+      "supply_cost_won_per_nm3": 23.61,
+      "feedstock_cost_won_per_gj": 15496.21,
+      "supply_cost_won_per_gj": 542.24,
+      "total_won_per_nm3": 698.36,
+      "total_won_per_gj": 16038.45
+    },
+    {
+      "month": "2012-11",
+      "feedstock_cost_won_per_nm3": 670.49,
+      "supply_cost_won_per_nm3": 23.61,
+      "feedstock_cost_won_per_gj": 15398.46,
+      "supply_cost_won_per_gj": 542.24,
+      "total_won_per_nm3": 694.1,
+      "total_won_per_gj": 15940.7
+    },
+    {
+      "month": "2012-12",
+      "feedstock_cost_won_per_nm3": 733.15,
+      "supply_cost_won_per_nm3": 68.38,
+      "feedstock_cost_won_per_gj": 16837.49,
+      "supply_cost_won_per_gj": 1570.42,
+      "total_won_per_nm3": 801.53,
+      "total_won_per_gj": 18407.91
+    },
+    {
+      "month": "2013-01",
+      "feedstock_cost_won_per_nm3": 748.23,
+      "supply_cost_won_per_nm3": 68.38,
+      "feedstock_cost_won_per_gj": 17183.83,
+      "supply_cost_won_per_gj": 1570.42,
+      "total_won_per_nm3": 816.61,
+      "total_won_per_gj": 18754.25
+    },
+    {
+      "month": "2013-02",
+      "feedstock_cost_won_per_nm3": 765.96,
+      "supply_cost_won_per_nm3": 68.38,
+      "feedstock_cost_won_per_gj": 17590.89,
+      "supply_cost_won_per_gj": 1570.42,
+      "total_won_per_nm3": 834.34,
+      "total_won_per_gj": 19161.31
+    },
+    {
+      "month": "2013-03",
+      "feedstock_cost_won_per_nm3": 776.3,
+      "supply_cost_won_per_nm3": 68.38,
+      "feedstock_cost_won_per_gj": 17828.43,
+      "supply_cost_won_per_gj": 1570.42,
+      "total_won_per_nm3": 844.68,
+      "total_won_per_gj": 19398.85
+    },
+    {
+      "month": "2013-04",
+      "feedstock_cost_won_per_nm3": 746.82,
+      "supply_cost_won_per_nm3": 23.61,
+      "feedstock_cost_won_per_gj": 17151.47,
+      "supply_cost_won_per_gj": 542.24,
+      "total_won_per_nm3": 770.43,
+      "total_won_per_gj": 17693.71
+    },
+    {
+      "month": "2013-05",
+      "feedstock_cost_won_per_nm3": 758.6,
+      "supply_cost_won_per_nm3": 23.61,
+      "feedstock_cost_won_per_gj": 17421.86,
+      "supply_cost_won_per_gj": 542.24,
+      "total_won_per_nm3": 782.21,
+      "total_won_per_gj": 17964.1
+    },
+    {
+      "month": "2013-06",
+      "feedstock_cost_won_per_nm3": 778.69,
+      "supply_cost_won_per_nm3": 23.61,
+      "feedstock_cost_won_per_gj": 17883.39,
+      "supply_cost_won_per_gj": 542.24,
+      "total_won_per_nm3": 802.3,
+      "total_won_per_gj": 18425.63
+    },
+    {
+      "month": "2013-07",
+      "feedstock_cost_won_per_nm3": 774.24,
+      "supply_cost_won_per_nm3": 23.61,
+      "feedstock_cost_won_per_gj": 17781.06,
+      "supply_cost_won_per_gj": 542.24,
+      "total_won_per_nm3": 797.85,
+      "total_won_per_gj": 18323.3
+    },
+    {
+      "month": "2013-08",
+      "feedstock_cost_won_per_nm3": 785.26,
+      "supply_cost_won_per_nm3": 23.61,
+      "feedstock_cost_won_per_gj": 18034.25,
+      "supply_cost_won_per_gj": 542.24,
+      "total_won_per_nm3": 808.87,
+      "total_won_per_gj": 18576.49
+    },
+    {
+      "month": "2013-09",
+      "feedstock_cost_won_per_nm3": 768.85,
+      "supply_cost_won_per_nm3": 23.61,
+      "feedstock_cost_won_per_gj": 17657.44,
+      "supply_cost_won_per_gj": 542.24,
+      "total_won_per_nm3": 792.46,
+      "total_won_per_gj": 18199.68
+    },
+    {
+      "month": "2013-10",
+      "feedstock_cost_won_per_nm3": 736.91,
+      "supply_cost_won_per_nm3": 23.61,
+      "feedstock_cost_won_per_gj": 16923.81,
+      "supply_cost_won_per_gj": 542.24,
+      "total_won_per_nm3": 760.52,
+      "total_won_per_gj": 17466.05
+    },
+    {
+      "month": "2013-11",
+      "feedstock_cost_won_per_nm3": 741.22,
+      "supply_cost_won_per_nm3": 23.61,
+      "feedstock_cost_won_per_gj": 17022.81,
+      "supply_cost_won_per_gj": 542.24,
+      "total_won_per_nm3": 764.83,
+      "total_won_per_gj": 17565.05
+    },
+    {
+      "month": "2013-12",
+      "feedstock_cost_won_per_nm3": 732.79,
+      "supply_cost_won_per_nm3": 68.38,
+      "feedstock_cost_won_per_gj": 16829.3,
+      "supply_cost_won_per_gj": 1570.42,
+      "total_won_per_nm3": 801.17,
+      "total_won_per_gj": 18399.72
+    },
+    {
+      "month": "2014-01",
+      "feedstock_cost_won_per_nm3": 785.97,
+      "supply_cost_won_per_nm3": 68.38,
+      "feedstock_cost_won_per_gj": 18050.61,
+      "supply_cost_won_per_gj": 1570.42,
+      "total_won_per_nm3": 854.35,
+      "total_won_per_gj": 19621.03
+    },
+    {
+      "month": "2014-02",
+      "feedstock_cost_won_per_nm3": 842.57,
+      "supply_cost_won_per_nm3": 68.38,
+      "feedstock_cost_won_per_gj": 19350.43,
+      "supply_cost_won_per_gj": 1570.42,
+      "total_won_per_nm3": 910.95,
+      "total_won_per_gj": 20920.85
+    },
+    {
+      "month": "2014-03",
+      "feedstock_cost_won_per_nm3": 827.26,
+      "supply_cost_won_per_nm3": 68.38,
+      "feedstock_cost_won_per_gj": 18998.86,
+      "supply_cost_won_per_gj": 1570.42,
+      "total_won_per_nm3": 895.64,
+      "total_won_per_gj": 20569.28
+    },
+    {
+      "month": "2014-04",
+      "feedstock_cost_won_per_nm3": 815.67,
+      "supply_cost_won_per_nm3": 23.61,
+      "feedstock_cost_won_per_gj": 18732.67,
+      "supply_cost_won_per_gj": 542.24,
+      "total_won_per_nm3": 839.28,
+      "total_won_per_gj": 19274.91
+    },
+    {
+      "month": "2014-05",
+      "feedstock_cost_won_per_nm3": 806.27,
+      "supply_cost_won_per_nm3": 23.61,
+      "feedstock_cost_won_per_gj": 18516.76,
+      "supply_cost_won_per_gj": 542.24,
+      "total_won_per_nm3": 829.88,
+      "total_won_per_gj": 19059.0
+    },
+    {
+      "month": "2014-06",
+      "feedstock_cost_won_per_nm3": 810.66,
+      "supply_cost_won_per_nm3": 23.61,
+      "feedstock_cost_won_per_gj": 18617.57,
+      "supply_cost_won_per_gj": 542.24,
+      "total_won_per_nm3": 834.27,
+      "total_won_per_gj": 19159.81
+    },
+    {
+      "month": "2014-07",
+      "feedstock_cost_won_per_nm3": 791.08,
+      "supply_cost_won_per_nm3": 23.61,
+      "feedstock_cost_won_per_gj": 18167.84,
+      "supply_cost_won_per_gj": 542.24,
+      "total_won_per_nm3": 814.69,
+      "total_won_per_gj": 18710.08
+    },
+    {
+      "month": "2014-08",
+      "feedstock_cost_won_per_nm3": 803.8,
+      "supply_cost_won_per_nm3": 23.61,
+      "feedstock_cost_won_per_gj": 18459.92,
+      "supply_cost_won_per_gj": 542.24,
+      "total_won_per_nm3": 827.41,
+      "total_won_per_gj": 19002.16
+    },
+    {
+      "month": "2014-09",
+      "feedstock_cost_won_per_nm3": 780.12,
+      "supply_cost_won_per_nm3": 23.61,
+      "feedstock_cost_won_per_gj": 17916.31,
+      "supply_cost_won_per_gj": 542.24,
+      "total_won_per_nm3": 803.73,
+      "total_won_per_gj": 18458.55
+    },
+    {
+      "month": "2014-10",
+      "feedstock_cost_won_per_nm3": 787.52,
+      "supply_cost_won_per_nm3": 23.61,
+      "feedstock_cost_won_per_gj": 18086.06,
+      "supply_cost_won_per_gj": 542.24,
+      "total_won_per_nm3": 811.13,
+      "total_won_per_gj": 18628.3
+    },
+    {
+      "month": "2014-11",
+      "feedstock_cost_won_per_nm3": 793.48,
+      "supply_cost_won_per_nm3": 23.61,
+      "feedstock_cost_won_per_gj": 18222.96,
+      "supply_cost_won_per_gj": 542.24,
+      "total_won_per_nm3": 817.09,
+      "total_won_per_gj": 18765.2
+    },
+    {
+      "month": "2014-12",
+      "feedstock_cost_won_per_nm3": 793.48,
+      "supply_cost_won_per_nm3": 68.38,
+      "feedstock_cost_won_per_gj": 18222.96,
+      "supply_cost_won_per_gj": 1570.42,
+      "total_won_per_nm3": 861.86,
+      "total_won_per_gj": 19793.38
+    },
+    {
+      "month": "2015-01",
+      "feedstock_cost_won_per_nm3": 703.86,
+      "supply_cost_won_per_nm3": 68.38,
+      "feedstock_cost_won_per_gj": 16164.8,
+      "supply_cost_won_per_gj": 1570.42,
+      "total_won_per_nm3": 772.24,
+      "total_won_per_gj": 17735.22
+    },
+    {
+      "month": "2015-02",
+      "feedstock_cost_won_per_nm3": 655.78,
+      "supply_cost_won_per_nm3": 68.38,
+      "feedstock_cost_won_per_gj": 15060.54,
+      "supply_cost_won_per_gj": 1570.42,
+      "total_won_per_nm3": 724.16,
+      "total_won_per_gj": 16630.96
+    },
+    {
+      "month": "2015-03",
+      "feedstock_cost_won_per_nm3": 614.51,
+      "supply_cost_won_per_nm3": 68.38,
+      "feedstock_cost_won_per_gj": 14112.71,
+      "supply_cost_won_per_gj": 1570.42,
+      "total_won_per_nm3": 682.89,
+      "total_won_per_gj": 15683.13
+    },
+    {
+      "month": "2015-04",
+      "feedstock_cost_won_per_nm3": 570.85,
+      "supply_cost_won_per_nm3": 23.61,
+      "feedstock_cost_won_per_gj": 13110.02,
+      "supply_cost_won_per_gj": 542.24,
+      "total_won_per_nm3": 594.46,
+      "total_won_per_gj": 13652.26
+    },
+    {
+      "month": "2015-05",
+      "feedstock_cost_won_per_nm3": 504.88,
+      "supply_cost_won_per_nm3": 27.84,
+      "feedstock_cost_won_per_gj": 11595.11,
+      "supply_cost_won_per_gj": 639.29,
+      "total_won_per_nm3": 532.72,
+      "total_won_per_gj": 12234.4
+    },
+    {
+      "month": "2015-06",
+      "feedstock_cost_won_per_nm3": 503.6,
+      "supply_cost_won_per_nm3": 26.19,
+      "feedstock_cost_won_per_gj": 11565.63,
+      "supply_cost_won_per_gj": 601.58,
+      "total_won_per_nm3": 529.79,
+      "total_won_per_gj": 12167.21
+    },
+    {
+      "month": "2015-07",
+      "feedstock_cost_won_per_nm3": 527.05,
+      "supply_cost_won_per_nm3": 26.19,
+      "feedstock_cost_won_per_gj": 12104.19,
+      "supply_cost_won_per_gj": 601.58,
+      "total_won_per_nm3": 553.24,
+      "total_won_per_gj": 12705.77
+    },
+    {
+      "month": "2015-08",
+      "feedstock_cost_won_per_nm3": 555.55,
+      "supply_cost_won_per_nm3": 26.19,
+      "feedstock_cost_won_per_gj": 12758.8,
+      "supply_cost_won_per_gj": 601.58,
+      "total_won_per_nm3": 581.74,
+      "total_won_per_gj": 13360.38
+    },
+    {
+      "month": "2015-09",
+      "feedstock_cost_won_per_nm3": 570.1,
+      "supply_cost_won_per_nm3": 26.19,
+      "feedstock_cost_won_per_gj": 13092.99,
+      "supply_cost_won_per_gj": 601.58,
+      "total_won_per_nm3": 596.29,
+      "total_won_per_gj": 13694.57
+    },
+    {
+      "month": "2015-10",
+      "feedstock_cost_won_per_nm3": 567.51,
+      "supply_cost_won_per_nm3": 27.84,
+      "feedstock_cost_won_per_gj": 13033.3,
+      "supply_cost_won_per_gj": 639.29,
+      "total_won_per_nm3": 595.35,
+      "total_won_per_gj": 13672.59
+    },
+    {
+      "month": "2015-11",
+      "feedstock_cost_won_per_nm3": 521.48,
+      "supply_cost_won_per_nm3": 27.84,
+      "feedstock_cost_won_per_gj": 11976.23,
+      "supply_cost_won_per_gj": 639.29,
+      "total_won_per_nm3": 549.32,
+      "total_won_per_gj": 12615.52
+    },
+    {
+      "month": "2015-12",
+      "feedstock_cost_won_per_nm3": 484.99,
+      "supply_cost_won_per_nm3": 79.29,
+      "feedstock_cost_won_per_gj": 11138.3,
+      "supply_cost_won_per_gj": 1821.08,
+      "total_won_per_nm3": 564.28,
+      "total_won_per_gj": 12959.38
+    },
+    {
+      "month": "2016-01",
+      "feedstock_cost_won_per_nm3": 479.49,
+      "supply_cost_won_per_nm3": 79.29,
+      "feedstock_cost_won_per_gj": 11011.83,
+      "supply_cost_won_per_gj": 1821.08,
+      "total_won_per_nm3": 558.78,
+      "total_won_per_gj": 12832.91
+    },
+    {
+      "month": "2016-02",
+      "feedstock_cost_won_per_nm3": 465.95,
+      "supply_cost_won_per_nm3": 79.29,
+      "feedstock_cost_won_per_gj": 10700.94,
+      "supply_cost_won_per_gj": 1821.08,
+      "total_won_per_nm3": 545.24,
+      "total_won_per_gj": 12522.02
+    },
+    {
+      "month": "2016-03",
+      "feedstock_cost_won_per_nm3": 447.32,
+      "supply_cost_won_per_nm3": 79.29,
+      "feedstock_cost_won_per_gj": 10273.11,
+      "supply_cost_won_per_gj": 1821.08,
+      "total_won_per_nm3": 526.61,
+      "total_won_per_gj": 12094.19
+    },
+    {
+      "month": "2016-04",
+      "feedstock_cost_won_per_nm3": 405.01,
+      "supply_cost_won_per_nm3": 27.84,
+      "feedstock_cost_won_per_gj": 9301.41,
+      "supply_cost_won_per_gj": 639.29,
+      "total_won_per_nm3": 432.85,
+      "total_won_per_gj": 9940.7
+    },
+    {
+      "month": "2016-05",
+      "feedstock_cost_won_per_nm3": 372.34,
+      "supply_cost_won_per_nm3": 29.96,
+      "feedstock_cost_won_per_gj": 8551.12,
+      "supply_cost_won_per_gj": 688.01,
+      "total_won_per_nm3": 402.3,
+      "total_won_per_gj": 9239.13
+    },
+    {
+      "month": "2016-06",
+      "feedstock_cost_won_per_nm3": 384.9,
+      "supply_cost_won_per_nm3": 29.83,
+      "feedstock_cost_won_per_gj": 8839.53,
+      "supply_cost_won_per_gj": 685.01,
+      "total_won_per_nm3": 414.73,
+      "total_won_per_gj": 9524.54
+    },
+    {
+      "month": "2016-07",
+      "feedstock_cost_won_per_nm3": 397.83,
+      "supply_cost_won_per_nm3": 29.83,
+      "feedstock_cost_won_per_gj": 9136.54,
+      "supply_cost_won_per_gj": 685.01,
+      "total_won_per_nm3": 427.66,
+      "total_won_per_gj": 9821.55
+    },
+    {
+      "month": "2016-08",
+      "feedstock_cost_won_per_nm3": 416.09,
+      "supply_cost_won_per_nm3": 29.83,
+      "feedstock_cost_won_per_gj": 9555.87,
+      "supply_cost_won_per_gj": 685.01,
+      "total_won_per_nm3": 445.92,
+      "total_won_per_gj": 10240.88
+    },
+    {
+      "month": "2016-09",
+      "feedstock_cost_won_per_nm3": 415.25,
+      "supply_cost_won_per_nm3": 29.83,
+      "feedstock_cost_won_per_gj": 9536.66,
+      "supply_cost_won_per_gj": 685.01,
+      "total_won_per_nm3": 445.08,
+      "total_won_per_gj": 10221.67
+    },
+    {
+      "month": "2016-10",
+      "feedstock_cost_won_per_nm3": 424.2,
+      "supply_cost_won_per_nm3": 29.96,
+      "feedstock_cost_won_per_gj": 9742.21,
+      "supply_cost_won_per_gj": 688.01,
+      "total_won_per_nm3": 454.16,
+      "total_won_per_gj": 10430.22
+    },
+    {
+      "month": "2016-11",
+      "feedstock_cost_won_per_nm3": 440.65,
+      "supply_cost_won_per_nm3": 29.96,
+      "feedstock_cost_won_per_gj": 10119.95,
+      "supply_cost_won_per_gj": 688.01,
+      "total_won_per_nm3": 470.61,
+      "total_won_per_gj": 10807.96
+    },
+    {
+      "month": "2016-12",
+      "feedstock_cost_won_per_nm3": 440.92,
+      "supply_cost_won_per_nm3": 99.32,
+      "feedstock_cost_won_per_gj": 10126.08,
+      "supply_cost_won_per_gj": 2280.88,
+      "total_won_per_nm3": 540.24,
+      "total_won_per_gj": 12406.96
+    },
+    {
+      "month": "2017-01",
+      "feedstock_cost_won_per_nm3": 464.02,
+      "supply_cost_won_per_nm3": 99.32,
+      "feedstock_cost_won_per_gj": 10656.61,
+      "supply_cost_won_per_gj": 2280.88,
+      "total_won_per_nm3": 563.34,
+      "total_won_per_gj": 12937.49
+    },
+    {
+      "month": "2017-02",
+      "feedstock_cost_won_per_nm3": 474.69,
+      "supply_cost_won_per_nm3": 99.32,
+      "feedstock_cost_won_per_gj": 10901.71,
+      "supply_cost_won_per_gj": 2280.88,
+      "total_won_per_nm3": 574.01,
+      "total_won_per_gj": 13182.59
+    },
+    {
+      "month": "2017-03",
+      "feedstock_cost_won_per_nm3": 457.03,
+      "supply_cost_won_per_nm3": 99.32,
+      "feedstock_cost_won_per_gj": 10496.18,
+      "supply_cost_won_per_gj": 2280.88,
+      "total_won_per_nm3": 556.35,
+      "total_won_per_gj": 12777.06
+    },
+    {
+      "month": "2017-04",
+      "feedstock_cost_won_per_nm3": 473.83,
+      "supply_cost_won_per_nm3": 29.96,
+      "feedstock_cost_won_per_gj": 10881.89,
+      "supply_cost_won_per_gj": 688.01,
+      "total_won_per_nm3": 503.79,
+      "total_won_per_gj": 11569.9
+    },
+    {
+      "month": "2017-05",
+      "feedstock_cost_won_per_nm3": 491.44,
+      "supply_cost_won_per_nm3": 47.77,
+      "feedstock_cost_won_per_gj": 11286.37,
+      "supply_cost_won_per_gj": 1097.1,
+      "total_won_per_nm3": 539.21,
+      "total_won_per_gj": 12383.47
+    },
+    {
+      "month": "2017-06",
+      "feedstock_cost_won_per_nm3": 456.09,
+      "supply_cost_won_per_nm3": 34.76,
+      "feedstock_cost_won_per_gj": 10474.46,
+      "supply_cost_won_per_gj": 798.3,
+      "total_won_per_nm3": 490.85,
+      "total_won_per_gj": 11272.76
+    },
+    {
+      "month": "2017-07",
+      "feedstock_cost_won_per_nm3": 464.61,
+      "supply_cost_won_per_nm3": 34.76,
+      "feedstock_cost_won_per_gj": 10670.22,
+      "supply_cost_won_per_gj": 798.3,
+      "total_won_per_nm3": 499.37,
+      "total_won_per_gj": 11468.52
+    },
+    {
+      "month": "2017-08",
+      "feedstock_cost_won_per_nm3": 474.78,
+      "supply_cost_won_per_nm3": 34.76,
+      "feedstock_cost_won_per_gj": 10903.68,
+      "supply_cost_won_per_gj": 798.3,
+      "total_won_per_nm3": 509.54,
+      "total_won_per_gj": 11701.98
+    },
+    {
+      "month": "2017-09",
+      "feedstock_cost_won_per_nm3": 467.44,
+      "supply_cost_won_per_nm3": 34.76,
+      "feedstock_cost_won_per_gj": 10735.31,
+      "supply_cost_won_per_gj": 798.3,
+      "total_won_per_nm3": 502.2,
+      "total_won_per_gj": 11533.61
+    },
+    {
+      "month": "2017-10",
+      "feedstock_cost_won_per_nm3": 466.14,
+      "supply_cost_won_per_nm3": 47.77,
+      "feedstock_cost_won_per_gj": 10705.34,
+      "supply_cost_won_per_gj": 1097.1,
+      "total_won_per_nm3": 513.91,
+      "total_won_per_gj": 11802.44
+    },
+    {
+      "month": "2017-11",
+      "feedstock_cost_won_per_nm3": 451.21,
+      "supply_cost_won_per_nm3": 47.77,
+      "feedstock_cost_won_per_gj": 10362.48,
+      "supply_cost_won_per_gj": 1097.1,
+      "total_won_per_nm3": 498.98,
+      "total_won_per_gj": 11459.58
+    },
+    {
+      "month": "2017-12",
+      "feedstock_cost_won_per_nm3": 463.19,
+      "supply_cost_won_per_nm3": 110.44,
+      "feedstock_cost_won_per_gj": 10637.59,
+      "supply_cost_won_per_gj": 2536.38,
+      "total_won_per_nm3": 573.63,
+      "total_won_per_gj": 13173.97
+    },
+    {
+      "month": "2018-01",
+      "feedstock_cost_won_per_nm3": 455.82,
+      "supply_cost_won_per_nm3": 109.27,
+      "feedstock_cost_won_per_gj": 10580.22,
+      "supply_cost_won_per_gj": 2536.38,
+      "total_won_per_nm3": 565.09,
+      "total_won_per_gj": 13116.6
+    },
+    {
+      "month": "2018-02",
+      "feedstock_cost_won_per_nm3": 517.73,
+      "supply_cost_won_per_nm3": 109.27,
+      "feedstock_cost_won_per_gj": 12017.34,
+      "supply_cost_won_per_gj": 2536.38,
+      "total_won_per_nm3": 627.0,
+      "total_won_per_gj": 14553.72
+    },
+    {
+      "month": "2018-03",
+      "feedstock_cost_won_per_nm3": 514.45,
+      "supply_cost_won_per_nm3": 109.27,
+      "feedstock_cost_won_per_gj": 11941.03,
+      "supply_cost_won_per_gj": 2536.38,
+      "total_won_per_nm3": 623.72,
+      "total_won_per_gj": 14477.41
+    },
+    {
+      "month": "2018-04",
+      "feedstock_cost_won_per_nm3": 508.08,
+      "supply_cost_won_per_nm3": 47.27,
+      "feedstock_cost_won_per_gj": 11793.2,
+      "supply_cost_won_per_gj": 1097.1,
+      "total_won_per_nm3": 555.35,
+      "total_won_per_gj": 12890.3
+    },
+    {
+      "month": "2018-05",
+      "feedstock_cost_won_per_nm3": 528.53,
+      "supply_cost_won_per_nm3": 36.89,
+      "feedstock_cost_won_per_gj": 12267.93,
+      "supply_cost_won_per_gj": 856.19,
+      "total_won_per_nm3": 565.42,
+      "total_won_per_gj": 13124.12
+    },
+    {
+      "month": "2018-06",
+      "feedstock_cost_won_per_nm3": 531.76,
+      "supply_cost_won_per_nm3": 29.66,
+      "feedstock_cost_won_per_gj": 12343.03,
+      "supply_cost_won_per_gj": 688.36,
+      "total_won_per_nm3": 561.42,
+      "total_won_per_gj": 13031.39
+    },
+    {
+      "month": "2018-07",
+      "feedstock_cost_won_per_nm3": 537.61,
+      "supply_cost_won_per_nm3": 29.66,
+      "feedstock_cost_won_per_gj": 12478.71,
+      "supply_cost_won_per_gj": 688.36,
+      "total_won_per_nm3": 567.27,
+      "total_won_per_gj": 13167.07
+    },
+    {
+      "month": "2018-08",
+      "feedstock_cost_won_per_nm3": 575.11,
+      "supply_cost_won_per_nm3": 29.66,
+      "feedstock_cost_won_per_gj": 13349.08,
+      "supply_cost_won_per_gj": 688.36,
+      "total_won_per_nm3": 604.77,
+      "total_won_per_gj": 14037.44
+    },
+    {
+      "month": "2018-09",
+      "feedstock_cost_won_per_nm3": 590.48,
+      "supply_cost_won_per_nm3": 29.66,
+      "feedstock_cost_won_per_gj": 13705.86,
+      "supply_cost_won_per_gj": 688.36,
+      "total_won_per_nm3": 620.14,
+      "total_won_per_gj": 14394.22
+    },
+    {
+      "month": "2018-10",
+      "feedstock_cost_won_per_nm3": 616.55,
+      "supply_cost_won_per_nm3": 36.89,
+      "feedstock_cost_won_per_gj": 14311.03,
+      "supply_cost_won_per_gj": 856.19,
+      "total_won_per_nm3": 653.44,
+      "total_won_per_gj": 15167.22
+    },
+    {
+      "month": "2018-11",
+      "feedstock_cost_won_per_nm3": 591.4,
+      "supply_cost_won_per_nm3": 36.89,
+      "feedstock_cost_won_per_gj": 13727.28,
+      "supply_cost_won_per_gj": 856.19,
+      "total_won_per_nm3": 628.29,
+      "total_won_per_gj": 14583.47
+    },
+    {
+      "month": "2018-12",
+      "feedstock_cost_won_per_nm3": 593.86,
+      "supply_cost_won_per_nm3": 94.22,
+      "feedstock_cost_won_per_gj": 13784.44,
+      "supply_cost_won_per_gj": 2186.94,
+      "total_won_per_nm3": 688.08,
+      "total_won_per_gj": 15971.38
+    },
+    {
+      "month": "2019-01",
+      "feedstock_cost_won_per_nm3": 580.94,
+      "supply_cost_won_per_nm3": 94.22,
+      "feedstock_cost_won_per_gj": 13484.57,
+      "supply_cost_won_per_gj": 2186.94,
+      "total_won_per_nm3": 675.16,
+      "total_won_per_gj": 15671.51
+    },
+    {
+      "month": "2019-02",
+      "feedstock_cost_won_per_nm3": 610.62,
+      "supply_cost_won_per_nm3": 94.22,
+      "feedstock_cost_won_per_gj": 14173.38,
+      "supply_cost_won_per_gj": 2186.94,
+      "total_won_per_nm3": 704.84,
+      "total_won_per_gj": 16360.32
+    },
+    {
+      "month": "2019-03",
+      "feedstock_cost_won_per_nm3": 584.97,
+      "supply_cost_won_per_nm3": 94.22,
+      "feedstock_cost_won_per_gj": 13578.08,
+      "supply_cost_won_per_gj": 2186.94,
+      "total_won_per_nm3": 679.19,
+      "total_won_per_gj": 15765.02
+    },
+    {
+      "month": "2019-04",
+      "feedstock_cost_won_per_nm3": 584.97,
+      "supply_cost_won_per_nm3": 36.89,
+      "feedstock_cost_won_per_gj": 13578.08,
+      "supply_cost_won_per_gj": 856.19,
+      "total_won_per_nm3": 621.86,
+      "total_won_per_gj": 14434.27
+    },
+    {
+      "month": "2019-05",
+      "feedstock_cost_won_per_nm3": 461.3,
+      "supply_cost_won_per_nm3": 36.89,
+      "feedstock_cost_won_per_gj": 10707.49,
+      "supply_cost_won_per_gj": 856.19,
+      "total_won_per_nm3": 498.19,
+      "total_won_per_gj": 11563.68
+    },
+    {
+      "month": "2019-06",
+      "feedstock_cost_won_per_nm3": 476.33,
+      "supply_cost_won_per_nm3": 29.66,
+      "feedstock_cost_won_per_gj": 11056.38,
+      "supply_cost_won_per_gj": 688.36,
+      "total_won_per_nm3": 505.99,
+      "total_won_per_gj": 11744.74
+    },
+    {
+      "month": "2019-07",
+      "feedstock_cost_won_per_nm3": 480.59,
+      "supply_cost_won_per_nm3": 22.19,
+      "feedstock_cost_won_per_gj": 11155.24,
+      "supply_cost_won_per_gj": 515.08,
+      "total_won_per_nm3": 502.78,
+      "total_won_per_gj": 11670.32
+    },
+    {
+      "month": "2019-08",
+      "feedstock_cost_won_per_nm3": 509.56,
+      "supply_cost_won_per_nm3": 22.19,
+      "feedstock_cost_won_per_gj": 11827.66,
+      "supply_cost_won_per_gj": 515.08,
+      "total_won_per_nm3": 531.75,
+      "total_won_per_gj": 12342.74
+    },
+    {
+      "month": "2019-09",
+      "feedstock_cost_won_per_nm3": 477.31,
+      "supply_cost_won_per_nm3": 22.19,
+      "feedstock_cost_won_per_gj": 11079.04,
+      "supply_cost_won_per_gj": 515.08,
+      "total_won_per_nm3": 499.5,
+      "total_won_per_gj": 11594.12
+    },
+    {
+      "month": "2019-10",
+      "feedstock_cost_won_per_nm3": 538.47,
+      "supply_cost_won_per_nm3": 27.45,
+      "feedstock_cost_won_per_gj": 12498.63,
+      "supply_cost_won_per_gj": 637.2,
+      "total_won_per_nm3": 565.92,
+      "total_won_per_gj": 13135.83
+    },
+    {
+      "month": "2019-11",
+      "feedstock_cost_won_per_nm3": 478.7,
+      "supply_cost_won_per_nm3": 27.45,
+      "feedstock_cost_won_per_gj": 11111.28,
+      "supply_cost_won_per_gj": 637.2,
+      "total_won_per_nm3": 506.15,
+      "total_won_per_gj": 11748.48
+    },
+    {
+      "month": "2019-12",
+      "feedstock_cost_won_per_nm3": 434.29,
+      "supply_cost_won_per_nm3": 69.71,
+      "feedstock_cost_won_per_gj": 10080.46,
+      "supply_cost_won_per_gj": 1618.04,
+      "total_won_per_nm3": 504.0,
+      "total_won_per_gj": 11698.5
+    },
+    {
+      "month": "2020-01",
+      "feedstock_cost_won_per_nm3": 442.49,
+      "supply_cost_won_per_nm3": 69.71,
+      "feedstock_cost_won_per_gj": 10270.9,
+      "supply_cost_won_per_gj": 1618.04,
+      "total_won_per_nm3": 512.2,
+      "total_won_per_gj": 11888.94
+    },
+    {
+      "month": "2020-02",
+      "feedstock_cost_won_per_nm3": 429.89,
+      "supply_cost_won_per_nm3": 69.71,
+      "feedstock_cost_won_per_gj": 9978.36,
+      "supply_cost_won_per_gj": 1618.04,
+      "total_won_per_nm3": 499.6,
+      "total_won_per_gj": 11596.4
+    },
+    {
+      "month": "2020-03",
+      "feedstock_cost_won_per_nm3": 442.87,
+      "supply_cost_won_per_nm3": 69.71,
+      "feedstock_cost_won_per_gj": 10279.7,
+      "supply_cost_won_per_gj": 1618.04,
+      "total_won_per_nm3": 512.58,
+      "total_won_per_gj": 11897.74
+    },
+    {
+      "month": "2020-04",
+      "feedstock_cost_won_per_nm3": 477.66,
+      "supply_cost_won_per_nm3": 27.45,
+      "feedstock_cost_won_per_gj": 11087.2,
+      "supply_cost_won_per_gj": 637.2,
+      "total_won_per_nm3": 505.11,
+      "total_won_per_gj": 11724.4
+    },
+    {
+      "month": "2020-05",
+      "feedstock_cost_won_per_nm3": 498.83,
+      "supply_cost_won_per_nm3": 27.45,
+      "feedstock_cost_won_per_gj": 11578.67,
+      "supply_cost_won_per_gj": 637.2,
+      "total_won_per_nm3": 526.28,
+      "total_won_per_gj": 12215.87
+    },
+    {
+      "month": "2020-06",
+      "feedstock_cost_won_per_nm3": 481.29,
+      "supply_cost_won_per_nm3": 22.19,
+      "feedstock_cost_won_per_gj": 11171.43,
+      "supply_cost_won_per_gj": 515.08,
+      "total_won_per_nm3": 503.48,
+      "total_won_per_gj": 11686.51
+    },
+    {
+      "month": "2020-07",
+      "feedstock_cost_won_per_nm3": 475.46,
+      "supply_cost_won_per_nm3": 25.73,
+      "feedstock_cost_won_per_gj": 11036.05,
+      "supply_cost_won_per_gj": 597.27,
+      "total_won_per_nm3": 501.19,
+      "total_won_per_gj": 11633.32
+    },
+    {
+      "month": "2020-08",
+      "feedstock_cost_won_per_nm3": 372.52,
+      "supply_cost_won_per_nm3": 25.73,
+      "feedstock_cost_won_per_gj": 8646.73,
+      "supply_cost_won_per_gj": 597.27,
+      "total_won_per_nm3": 398.25,
+      "total_won_per_gj": 9244.0
+    },
+    {
+      "month": "2020-09",
+      "feedstock_cost_won_per_nm3": 320.1,
+      "supply_cost_won_per_nm3": 25.73,
+      "feedstock_cost_won_per_gj": 7429.94,
+      "supply_cost_won_per_gj": 597.27,
+      "total_won_per_nm3": 345.83,
+      "total_won_per_gj": 8027.21
+    },
+    {
+      "month": "2020-10",
+      "feedstock_cost_won_per_nm3": 278.28,
+      "supply_cost_won_per_nm3": 31.42,
+      "feedstock_cost_won_per_gj": 6459.21,
+      "supply_cost_won_per_gj": 729.41,
+      "total_won_per_nm3": 309.7,
+      "total_won_per_gj": 7188.62
+    },
+    {
+      "month": "2020-11",
+      "feedstock_cost_won_per_nm3": 275.1,
+      "supply_cost_won_per_nm3": 31.42,
+      "feedstock_cost_won_per_gj": 6385.44,
+      "supply_cost_won_per_gj": 729.41,
+      "total_won_per_nm3": 306.52,
+      "total_won_per_gj": 7114.85
+    },
+    {
+      "month": "2020-12",
+      "feedstock_cost_won_per_nm3": 310.42,
+      "supply_cost_won_per_nm3": 92.74,
+      "feedstock_cost_won_per_gj": 7205.46,
+      "supply_cost_won_per_gj": 2152.74,
+      "total_won_per_nm3": 403.16,
+      "total_won_per_gj": 9358.2
+    },
+    {
+      "month": "2021-01",
+      "feedstock_cost_won_per_nm3": 334.85,
+      "supply_cost_won_per_nm3": 92.74,
+      "feedstock_cost_won_per_gj": 7772.63,
+      "supply_cost_won_per_gj": 2152.74,
+      "total_won_per_nm3": 427.59,
+      "total_won_per_gj": 9925.37
+    },
+    {
+      "month": "2021-02",
+      "feedstock_cost_won_per_nm3": 369.73,
+      "supply_cost_won_per_nm3": 92.74,
+      "feedstock_cost_won_per_gj": 8582.0,
+      "supply_cost_won_per_gj": 2152.74,
+      "total_won_per_nm3": 462.47,
+      "total_won_per_gj": 10734.74
+    },
+    {
+      "month": "2021-03",
+      "feedstock_cost_won_per_nm3": 414.39,
+      "supply_cost_won_per_nm3": 92.74,
+      "feedstock_cost_won_per_gj": 9618.64,
+      "supply_cost_won_per_gj": 2152.74,
+      "total_won_per_nm3": 507.13,
+      "total_won_per_gj": 11771.38
+    },
+    {
+      "month": "2021-04",
+      "feedstock_cost_won_per_nm3": 424.67,
+      "supply_cost_won_per_nm3": 31.42,
+      "feedstock_cost_won_per_gj": 9857.21,
+      "supply_cost_won_per_gj": 729.41,
+      "total_won_per_nm3": 456.09,
+      "total_won_per_gj": 10586.62
+    },
+    {
+      "month": "2021-05",
+      "feedstock_cost_won_per_nm3": 413.38,
+      "supply_cost_won_per_nm3": 75.9,
+      "feedstock_cost_won_per_gj": 9595.26,
+      "supply_cost_won_per_gj": 1761.67,
+      "total_won_per_nm3": 489.28,
+      "total_won_per_gj": 11356.93
+    },
+    {
+      "month": "2021-06",
+      "feedstock_cost_won_per_nm3": 437.84,
+      "supply_cost_won_per_nm3": 75.9,
+      "feedstock_cost_won_per_gj": 10163.11,
+      "supply_cost_won_per_gj": 1761.67,
+      "total_won_per_nm3": 513.74,
+      "total_won_per_gj": 11924.78
+    },
+    {
+      "month": "2021-07",
+      "feedstock_cost_won_per_nm3": 463.29,
+      "supply_cost_won_per_nm3": 75.9,
+      "feedstock_cost_won_per_gj": 10753.88,
+      "supply_cost_won_per_gj": 1761.67,
+      "total_won_per_nm3": 539.19,
+      "total_won_per_gj": 12515.55
+    },
+    {
+      "month": "2021-08",
+      "feedstock_cost_won_per_nm3": 509.92,
+      "supply_cost_won_per_nm3": 75.9,
+      "feedstock_cost_won_per_gj": 11835.94,
+      "supply_cost_won_per_gj": 1761.67,
+      "total_won_per_nm3": 585.82,
+      "total_won_per_gj": 13597.61
+    },
+    {
+      "month": "2021-09",
+      "feedstock_cost_won_per_nm3": 546.92,
+      "supply_cost_won_per_nm3": 75.9,
+      "feedstock_cost_won_per_gj": 12694.62,
+      "supply_cost_won_per_gj": 1761.67,
+      "total_won_per_nm3": 622.82,
+      "total_won_per_gj": 14456.29
+    },
+    {
+      "month": "2021-10",
+      "feedstock_cost_won_per_nm3": 577.55,
+      "supply_cost_won_per_nm3": 75.9,
+      "feedstock_cost_won_per_gj": 13405.64,
+      "supply_cost_won_per_gj": 1761.67,
+      "total_won_per_nm3": 653.45,
+      "total_won_per_gj": 15167.31
+    },
+    {
+      "month": "2021-11",
+      "feedstock_cost_won_per_nm3": 719.19,
+      "supply_cost_won_per_nm3": 75.9,
+      "feedstock_cost_won_per_gj": 16693.09,
+      "supply_cost_won_per_gj": 1761.67,
+      "total_won_per_nm3": 795.09,
+      "total_won_per_gj": 18454.76
+    },
+    {
+      "month": "2021-12",
+      "feedstock_cost_won_per_nm3": 813.75,
+      "supply_cost_won_per_nm3": 75.9,
+      "feedstock_cost_won_per_gj": 18888.33,
+      "supply_cost_won_per_gj": 1761.67,
+      "total_won_per_nm3": 889.65,
+      "total_won_per_gj": 20650.0
+    },
+    {
+      "month": "2022-01",
+      "feedstock_cost_won_per_nm3": 909.2,
+      "supply_cost_won_per_nm3": 75.9,
+      "feedstock_cost_won_per_gj": 21103.7,
+      "supply_cost_won_per_gj": 1761.67,
+      "total_won_per_nm3": 985.1,
+      "total_won_per_gj": 22865.37
+    },
+    {
+      "month": "2022-02",
+      "feedstock_cost_won_per_nm3": 1184.76,
+      "supply_cost_won_per_nm3": 75.9,
+      "feedstock_cost_won_per_gj": 27500.0,
+      "supply_cost_won_per_gj": 1761.67,
+      "total_won_per_nm3": 1260.66,
+      "total_won_per_gj": 29261.67
+    },
+    {
+      "month": "2022-03",
+      "feedstock_cost_won_per_nm3": 1085.72,
+      "supply_cost_won_per_nm3": 75.9,
+      "feedstock_cost_won_per_gj": 25201.3,
+      "supply_cost_won_per_gj": 1761.67,
+      "total_won_per_nm3": 1161.62,
+      "total_won_per_gj": 26962.97
+    },
+    {
+      "month": "2022-04",
+      "feedstock_cost_won_per_nm3": 1160.25,
+      "supply_cost_won_per_nm3": 75.9,
+      "feedstock_cost_won_per_gj": 26931.13,
+      "supply_cost_won_per_gj": 1761.67,
+      "total_won_per_nm3": 1236.15,
+      "total_won_per_gj": 28692.8
+    },
+    {
+      "month": "2022-05",
+      "feedstock_cost_won_per_nm3": 802.09,
+      "supply_cost_won_per_nm3": 75.9,
+      "feedstock_cost_won_per_gj": 18617.68,
+      "supply_cost_won_per_gj": 1043.69,
+      "total_won_per_nm3": 877.99,
+      "total_won_per_gj": 19661.37
+    },
+    {
+      "month": "2022-06",
+      "feedstock_cost_won_per_nm3": 754.19,
+      "supply_cost_won_per_nm3": 75.9,
+      "feedstock_cost_won_per_gj": 17505.67,
+      "supply_cost_won_per_gj": 1043.69,
+      "total_won_per_nm3": 830.09,
+      "total_won_per_gj": 18549.36
+    },
+    {
+      "month": "2022-07",
+      "feedstock_cost_won_per_nm3": 891.6,
+      "supply_cost_won_per_nm3": 75.9,
+      "feedstock_cost_won_per_gj": 20695.36,
+      "supply_cost_won_per_gj": 1043.69,
+      "total_won_per_nm3": 967.5,
+      "total_won_per_gj": 21739.05
+    },
+    {
+      "month": "2022-08",
+      "feedstock_cost_won_per_nm3": 1262.85,
+      "supply_cost_won_per_nm3": 75.9,
+      "feedstock_cost_won_per_gj": 29312.72,
+      "supply_cost_won_per_gj": 1043.69,
+      "total_won_per_nm3": 1338.75,
+      "total_won_per_gj": 30356.41
+    },
+    {
+      "month": "2022-09",
+      "feedstock_cost_won_per_nm3": 1443.31,
+      "supply_cost_won_per_nm3": 75.9,
+      "feedstock_cost_won_per_gj": 33501.47,
+      "supply_cost_won_per_gj": 1043.69,
+      "total_won_per_nm3": 1519.21,
+      "total_won_per_gj": 34545.16
+    },
+    {
+      "month": "2022-10",
+      "feedstock_cost_won_per_nm3": 1538.01,
+      "supply_cost_won_per_nm3": 75.9,
+      "feedstock_cost_won_per_gj": 35699.56,
+      "supply_cost_won_per_gj": 1043.69,
+      "total_won_per_nm3": 1613.91,
+      "total_won_per_gj": 36743.25
+    },
+    {
+      "month": "2022-11",
+      "feedstock_cost_won_per_nm3": 1500.46,
+      "supply_cost_won_per_nm3": 75.9,
+      "feedstock_cost_won_per_gj": 34828.13,
+      "supply_cost_won_per_gj": 1043.69,
+      "total_won_per_nm3": 1576.36,
+      "total_won_per_gj": 35871.82
+    },
+    {
+      "month": "2022-12",
+      "feedstock_cost_won_per_nm3": 1587.66,
+      "supply_cost_won_per_nm3": 75.9,
+      "feedstock_cost_won_per_gj": 36852.07,
+      "supply_cost_won_per_gj": 1043.69,
+      "total_won_per_nm3": 1663.56,
+      "total_won_per_gj": 37895.76
+    }
+  ]
+}

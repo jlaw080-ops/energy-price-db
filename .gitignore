@@ -1,0 +1,17 @@
+# 환경변수 (API 키 등 비밀값) - 절대 커밋 금지
+.env
+.env.local
+.env.*.local
+
+# 작업용 임시 파일
+*.pyc
+*.tmp
+.DS_Store
+__pycache__/
+.venv/
+venv/
+node_modules/
+data/_raw/
+
+# 스크립트가 생성하는 적재용 SQL (원본은 data/ 의 JSON)
+build/

@@ -1,0 +1,30 @@
+{
+  "meta": {
+    "dataset": "misc_price",
+    "title": "기타 단가",
+    "base_year": 2026,
+    "currency": "KRW",
+    "updated_at": "2026-10-25",
+    "source": "사용자 제공 — 경제성분석 입력 화면의 단가값",
+    "status": "사용자가 쓰던 경제성분석 입력값을 그대로 옮긴 것입니다",
+    "assumptions": [
+      "전기요금 절감 단가는 장비가 아니라 '회피단가'(자가발전으로 안 내게 된 전기요금)이므로 장비단가가 아닌 기타단가에 두었습니다.",
+      "화면에 기준일이 없어 base_date 를 base_year 의 1월 1일(2026-01-01)로 두었습니다."
+    ],
+    "guide": "docs/DATA-MODEL.md 의 '기타 단가' 절 참고"
+  },
+  "items": [
+    {
+      "slug": "electricity-avoided-cost",
+      "category": "전기요금",
+      "name": "전기요금 절감 단가 (회피단가)",
+      "spec": "자가발전·절감량 1kWh 당 줄어드는 전기요금",
+      "unit_price": 173,
+      "price_unit": "원/kWh",
+      "base_date": "2026-01-01",
+      "source": "사용자 제공 (경제성분석 입력값)",
+      "source_type": "제공",
+      "note": "입력 화면값 173 원/kWh. 종별·계절·시간대에 따라 실제 한계단가는 달라지므로, pricing.calc_* 함수로 대상 건물의 실제 요금제에서 역산해 검증하는 것을 권합니다."
+    }
+  ]
+}

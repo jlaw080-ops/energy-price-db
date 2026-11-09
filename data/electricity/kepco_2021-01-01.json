@@ -1,0 +1,2467 @@
+{
+  "meta": {
+    "dataset": "kepco_electricity_tariff",
+    "title": "한국전력공사 전기요금표 (종합)",
+    "provider": "한국전력공사",
+    "source_file": "단가정보/전기요금/종합/2021-01-01_전기요금표_종합.pdf",
+    "source_pages": [
+      1,
+      2
+    ],
+    "published_label": "2021년 1월 1일 시행",
+    "effective_note": "요금표에 종별 시행일 구분 주석 없음 — 전 종별 2021-01-01 시행",
+    "currency": "KRW",
+    "extracted_at": "2026-10-23",
+    "extraction_method": "페이지 이미지 육안 전사 (레이아웃이 다른 연도와 완전히 달라 좌표 재사용 불가)",
+    "coverage_note": "전기자동차 충전전력요금·보완전력요금·역송전력요금은 미포함",
+    "verified": true
+  },
+  "taxes": {
+    "vat_rate": 0.1,
+    "vat_note": "이 요금표에는 요율이 적혀 있지 않다. 부가가치세법상 10%.",
+    "power_industry_fund_rate": null,
+    "power_industry_fund_note": "이 요금표에는 요율이 적혀 있지 않다. 2024-04-01 요금표까지는 3.7% 였으나 확인 후 채울 것.",
+    "billing_formula": "청구금액 = 전기요금 + 부가가치세 + 전력산업기반기금"
+  },
+  "surcharges": {
+    "climate_charge_won_per_kwh": 5.3,
+    "climate_charge_note": "기후환경요금단가 5.3원/kWh ('21년 1월 기준). RPS·ETS·석탄발전 감축 비용으로 구성. 이 요금표는 단가를 명시한다 — 이후 연도 요금표에는 단가가 없다.",
+    "fuel_adjustment_won_per_kwh": null,
+    "fuel_adjustment_note": "연료비조정단가 × 사용전력량. 상하한 ±5원/kWh, 3개월마다 변동."
+  },
+  "definitions": {
+    "voltage_classes": [
+      {
+        "code": "저압",
+        "range": "표준전압 220V, 380V 고객"
+      },
+      {
+        "code": "고압A",
+        "range": "표준전압 3,300V 이상 66,000V 이하 고객"
+      },
+      {
+        "code": "고압B",
+        "range": "표준전압 154,000V 고객"
+      },
+      {
+        "code": "고압C",
+        "range": "표준전압 345,000V 이상 고객"
+      }
+    ],
+    "options": [
+      {
+        "code": "선택Ⅰ",
+        "guide": "기본요금이 낮고 전력량요금이 높음. 전기사용시간(설비가동률) 월 200시간 이하 고객에게 유리"
+      },
+      {
+        "code": "선택Ⅱ",
+        "guide": "전기사용시간(설비가동률) 월 200시간 초과 500시간 이하 고객에게 유리"
+      },
+      {
+        "code": "선택Ⅲ",
+        "guide": "기본요금이 높고 전력량요금이 낮음. 전기사용시간(설비가동률) 월 500시간 초과 고객에게 유리"
+      }
+    ],
+    "seasons": [
+      {
+        "code": "여름철",
+        "months": "6~8월"
+      },
+      {
+        "code": "봄·가을철",
+        "months": "3~5월, 9~10월"
+      },
+      {
+        "code": "겨울철",
+        "months": "11~2월"
+      }
+    ],
+    "time_zones": {
+      "여름철": {
+        "경부하": [
+          "23:00~09:00"
+        ],
+        "중간부하": [
+          "09:00~10:00",
+          "12:00~13:00",
+          "17:00~23:00"
+        ],
+        "최대부하": [
+          "10:00~12:00",
+          "13:00~17:00"
+        ]
+      },
+      "봄·가을철": {
+        "경부하": [
+          "23:00~09:00"
+        ],
+        "중간부하": [
+          "09:00~10:00",
+          "12:00~13:00",
+          "17:00~23:00"
+        ],
+        "최대부하": [
+          "10:00~12:00",
+          "13:00~17:00"
+        ]
+      },
+      "겨울철": {
+        "경부하": [
+          "23:00~09:00"
+        ],
+        "중간부하": [
+          "09:00~10:00",
+          "12:00~17:00",
+          "20:00~22:00"
+        ],
+        "최대부하": [
+          "10:00~12:00",
+          "17:00~20:00",
+          "22:00~23:00"
+        ]
+      }
+    },
+    "time_zones_note": "2021 요금표의 시간대 구분은 이후 연도와 다르다 (경부하가 23시 시작).",
+    "time_zones_jeju": {
+      "주말 전체시간": [
+        "토요일, 공휴일 전체"
+      ],
+      "평일 기타시간": [
+        "21:00~09:00"
+      ],
+      "평일 수요시간": [
+        "09:00~21:00"
+      ],
+      "note": "2021 요금표의 제주 계시별은 경·중간·최대부하가 아니라 주말/평일 구분이다."
+    }
+  },
+  "tariffs": [
+    {
+      "id": "residential-lv",
+      "contract_type": "주택용전력",
+      "voltage_group": "저압",
+      "rate_structure": "progressive",
+      "effective_from": "2021-01-01",
+      "rates": [
+        {
+          "voltage": "저압",
+          "season": "기타계절",
+          "basic_charge_unit": "원/호",
+          "tiers": [
+            {
+              "tier": 1,
+              "usage_range": "200kWh 이하 사용",
+              "basic_charge": 910,
+              "energy_label": "처음 200kWh까지",
+              "energy_charge": 88.3
+            },
+            {
+              "tier": 2,
+              "usage_range": "201~400kWh 사용",
+              "basic_charge": 1600,
+              "energy_label": "다음 200kWh까지",
+              "energy_charge": 182.9
+            },
+            {
+              "tier": 3,
+              "usage_range": "400kWh 초과 사용",
+              "basic_charge": 7300,
+              "energy_label": "400kWh 초과",
+              "energy_charge": 275.6
+            }
+          ],
+          "super_user": {
+            "condition": "동계(12월 1일~2월 말일) 1,000kWh 초과",
+            "energy_charge": 704.5
+          }
+        },
+        {
+          "voltage": "저압",
+          "season": "하계",
+          "basic_charge_unit": "원/호",
+          "tiers": [
+            {
+              "tier": 1,
+              "usage_range": "300kWh 이하 사용",
+              "basic_charge": 910,
+              "energy_label": "처음 300kWh까지",
+              "energy_charge": 88.3
+            },
+            {
+              "tier": 2,
+              "usage_range": "301~450kWh 사용",
+              "basic_charge": 1600,
+              "energy_label": "다음 150kWh까지",
+              "energy_charge": 182.9
+            },
+            {
+              "tier": 3,
+              "usage_range": "450kWh 초과 사용",
+              "basic_charge": 7300,
+              "energy_label": "450kWh 초과",
+              "energy_charge": 275.6
+            }
+          ],
+          "super_user": {
+            "condition": "하계(7월 1일~8월 31일) 1,000kWh 초과",
+            "energy_charge": 704.5
+          }
+        }
+      ],
+      "season_definition": {
+        "하계": "7월 1일~8월 31일",
+        "기타계절": "1월 1일~6월 30일, 9월 1일~12월 31일"
+      }
+    },
+    {
+      "id": "residential-hv",
+      "contract_type": "주택용전력",
+      "voltage_group": "고압",
+      "rate_structure": "progressive",
+      "effective_from": "2021-01-01",
+      "rates": [
+        {
+          "voltage": "고압",
+          "season": "기타계절",
+          "basic_charge_unit": "원/호",
+          "tiers": [
+            {
+              "tier": 1,
+              "usage_range": "200kWh 이하 사용",
+              "basic_charge": 730,
+              "energy_label": "처음 200kWh까지",
+              "energy_charge": 73.3
+            },
+            {
+              "tier": 2,
+              "usage_range": "201~400kWh 사용",
+              "basic_charge": 1260,
+              "energy_label": "다음 200kWh까지",
+              "energy_charge": 142.3
+            },
+            {
+              "tier": 3,
+              "usage_range": "400kWh 초과 사용",
+              "basic_charge": 6060,
+              "energy_label": "400kWh 초과",
+              "energy_charge": 210.6
+            }
+          ],
+          "super_user": {
+            "condition": "동계(12월 1일~2월 말일) 1,000kWh 초과",
+            "energy_charge": 569.6
+          }
+        },
+        {
+          "voltage": "고압",
+          "season": "하계",
+          "basic_charge_unit": "원/호",
+          "tiers": [
+            {
+              "tier": 1,
+              "usage_range": "300kWh 이하 사용",
+              "basic_charge": 730,
+              "energy_label": "처음 300kWh까지",
+              "energy_charge": 73.3
+            },
+            {
+              "tier": 2,
+              "usage_range": "301~450kWh 사용",
+              "basic_charge": 1260,
+              "energy_label": "다음 150kWh까지",
+              "energy_charge": 142.3
+            },
+            {
+              "tier": 3,
+              "usage_range": "450kWh 초과 사용",
+              "basic_charge": 6060,
+              "energy_label": "450kWh 초과",
+              "energy_charge": 210.6
+            }
+          ],
+          "super_user": {
+            "condition": "하계(7월 1일~8월 31일) 1,000kWh 초과",
+            "energy_charge": 569.6
+          }
+        }
+      ],
+      "season_definition": {
+        "하계": "7월 1일~8월 31일",
+        "기타계절": "1월 1일~6월 30일, 9월 1일~12월 31일"
+      }
+    },
+    {
+      "id": "residential-tou-jeju",
+      "contract_type": "주택용 계시별",
+      "scope": "제주특별자치도",
+      "rate_structure": "time_of_use",
+      "effective_from": "2021-01-01",
+      "rates": [
+        {
+          "voltage": null,
+          "basic_charge": 4310,
+          "basic_charge_unit": "원/kW",
+          "energy": [
+            {
+              "season": "봄·가을철",
+              "time_zone": "주말 전체시간",
+              "charge": 94.1
+            },
+            {
+              "season": "봄·가을철",
+              "time_zone": "평일 기타시간",
+              "charge": 94.1
+            },
+            {
+              "season": "봄·가을철",
+              "time_zone": "평일 수요시간",
+              "charge": 140.7
+            },
+            {
+              "season": "여름·겨울철",
+              "time_zone": "주말 전체시간",
+              "charge": 107.0
+            },
+            {
+              "season": "여름·겨울철",
+              "time_zone": "평일 기타시간",
+              "charge": 107.0
+            },
+            {
+              "season": "여름·겨울철",
+              "time_zone": "평일 수요시간",
+              "charge": 188.8
+            }
+          ]
+        }
+      ],
+      "super_user": {
+        "condition": "여름·겨울철(6월 1일~8월 31일, 11월 1일~2월 말일) 1,000kWh 초과",
+        "energy_charge": 704.5
+      },
+      "notes": [
+        "시간대: 주말(토요일, 공휴일), 평일 기타시간(21시~09시), 평일 수요시간(09~21시)",
+        "2021 요금표는 경·중간·최대부하가 아니라 주말/평일 구분을 쓴다."
+      ]
+    },
+    {
+      "id": "education-a",
+      "contract_type": "교육용전력(갑)",
+      "contract_power": "계약전력 1,000kW 미만",
+      "rate_structure": "seasonal",
+      "effective_from": "2021-01-01",
+      "rates": [
+        {
+          "voltage": "저압",
+          "basic_charge": 5230,
+          "basic_charge_unit": "원/kW",
+          "energy": [
+            {
+              "season": "여름철",
+              "charge": 91.9
+            },
+            {
+              "season": "봄·가을철",
+              "charge": 54.7
+            },
+            {
+              "season": "겨울철",
+              "charge": 79.1
+            }
+          ]
+        },
+        {
+          "voltage": "고압A",
+          "basic_charge": 5550,
+          "basic_charge_unit": "원/kW",
+          "energy": [
+            {
+              "season": "여름철",
+              "charge": 91.6
+            },
+            {
+              "season": "봄·가을철",
+              "charge": 54.8
+            },
+            {
+              "season": "겨울철",
+              "charge": 77.6
+            }
+          ],
+          "option": "선택Ⅰ"
+        },
+        {
+          "voltage": "고압A",
+          "basic_charge": 6370,
+          "basic_charge_unit": "원/kW",
+          "energy": [
+            {
+              "season": "여름철",
+              "charge": 87.1
+            },
+            {
+              "season": "봄·가을철",
+              "charge": 50.4
+            },
+            {
+              "season": "겨울철",
+              "charge": 73.1
+            }
+          ],
+          "option": "선택Ⅱ"
+        },
+        {
+          "voltage": "고압B",
+          "basic_charge": 5550,
+          "basic_charge_unit": "원/kW",
+          "energy": [
+            {
+              "season": "여름철",
+              "charge": 90.9
+            },
+            {
+              "season": "봄·가을철",
+              "charge": 54.4
+            },
+            {
+              "season": "겨울철",
+              "charge": 76.8
+            }
+          ],
+          "option": "선택Ⅰ"
+        },
+        {
+          "voltage": "고압B",
+          "basic_charge": 6370,
+          "basic_charge_unit": "원/kW",
+          "energy": [
+            {
+              "season": "여름철",
+              "charge": 86.4
+            },
+            {
+              "season": "봄·가을철",
+              "charge": 49.9
+            },
+            {
+              "season": "겨울철",
+              "charge": 72.3
+            }
+          ],
+          "option": "선택Ⅱ"
+        }
+      ]
+    },
+    {
+      "id": "education-b",
+      "contract_type": "교육용전력(을)",
+      "contract_power": "계약전력 1,000kW 이상",
+      "rate_structure": "time_of_use",
+      "effective_from": "2021-01-01",
+      "rates": [
+        {
+          "voltage": "고압A",
+          "basic_charge": 6090,
+          "basic_charge_unit": "원/kW",
+          "energy": [
+            {
+              "season": "여름철",
+              "time_zone": "경부하",
+              "charge": 44.8
+            },
+            {
+              "season": "여름철",
+              "time_zone": "중간부하",
+              "charge": 89.5
+            },
+            {
+              "season": "여름철",
+              "time_zone": "최대부하",
+              "charge": 155.4
+            },
+            {
+              "season": "봄·가을철",
+              "time_zone": "경부하",
+              "charge": 44.8
+            },
+            {
+              "season": "봄·가을철",
+              "time_zone": "중간부하",
+              "charge": 59.2
+            },
+            {
+              "season": "봄·가을철",
+              "time_zone": "최대부하",
+              "charge": 79.7
+            },
+            {
+              "season": "겨울철",
+              "time_zone": "경부하",
+              "charge": 48.8
+            },
+            {
+              "season": "겨울철",
+              "time_zone": "중간부하",
+              "charge": 88.0
+            },
+            {
+              "season": "겨울철",
+              "time_zone": "최대부하",
+              "charge": 126.7
+            }
+          ],
+          "option": "선택Ⅰ"
+        },
+        {
+          "voltage": "고압A",
+          "basic_charge": 6980,
+          "basic_charge_unit": "원/kW",
+          "energy": [
+            {
+              "season": "여름철",
+              "time_zone": "경부하",
+              "charge": 40.3
+            },
+            {
+              "season": "여름철",
+              "time_zone": "중간부하",
+              "charge": 85.0
+            },
+            {
+              "season": "여름철",
+              "time_zone": "최대부하",
+              "charge": 150.9
+            },
+            {
+              "season": "봄·가을철",
+              "time_zone": "경부하",
+              "charge": 40.3
+            },
+            {
+              "season": "봄·가을철",
+              "time_zone": "중간부하",
+              "charge": 54.7
+            },
+            {
+              "season": "봄·가을철",
+              "time_zone": "최대부하",
+              "charge": 75.2
+            },
+            {
+              "season": "겨울철",
+              "time_zone": "경부하",
+              "charge": 44.3
+            },
+            {
+              "season": "겨울철",
+              "time_zone": "중간부하",
+              "charge": 83.5
+            },
+            {
+              "season": "겨울철",
+              "time_zone": "최대부하",
+              "charge": 122.2
+            }
+          ],
+          "option": "선택Ⅱ"
+        },
+        {
+          "voltage": "고압B",
+          "basic_charge": 6090,
+          "basic_charge_unit": "원/kW",
+          "energy": [
+            {
+              "season": "여름철",
+              "time_zone": "경부하",
+              "charge": 43.3
+            },
+            {
+              "season": "여름철",
+              "time_zone": "중간부하",
+              "charge": 86.8
+            },
+            {
+              "season": "여름철",
+              "time_zone": "최대부하",
+              "charge": 149.7
+            },
+            {
+              "season": "봄·가을철",
+              "time_zone": "경부하",
+              "charge": 43.3
+            },
+            {
+              "season": "봄·가을철",
+              "time_zone": "중간부하",
+              "charge": 57.5
+            },
+            {
+              "season": "봄·가을철",
+              "time_zone": "최대부하",
+              "charge": 77.3
+            },
+            {
+              "season": "겨울철",
+              "time_zone": "경부하",
+              "charge": 47.1
+            },
+            {
+              "season": "겨울철",
+              "time_zone": "중간부하",
+              "charge": 85.1
+            },
+            {
+              "season": "겨울철",
+              "time_zone": "최대부하",
+              "charge": 122.4
+            }
+          ],
+          "option": "선택Ⅰ"
+        },
+        {
+          "voltage": "고압B",
+          "basic_charge": 6980,
+          "basic_charge_unit": "원/kW",
+          "energy": [
+            {
+              "season": "여름철",
+              "time_zone": "경부하",
+              "charge": 38.8
+            },
+            {
+              "season": "여름철",
+              "time_zone": "중간부하",
+              "charge": 82.3
+            },
+            {
+              "season": "여름철",
+              "time_zone": "최대부하",
+              "charge": 145.2
+            },
+            {
+              "season": "봄·가을철",
+              "time_zone": "경부하",
+              "charge": 38.8
+            },
+            {
+              "season": "봄·가을철",
+              "time_zone": "중간부하",
+              "charge": 53.0
+            },
+            {
+              "season": "봄·가을철",
+              "time_zone": "최대부하",
+              "charge": 72.8
+            },
+            {
+              "season": "겨울철",
+              "time_zone": "경부하",
+              "charge": 42.6
+            },
+            {
+              "season": "겨울철",
+              "time_zone": "중간부하",
+              "charge": 80.6
+            },
+            {
+              "season": "겨울철",
+              "time_zone": "최대부하",
+              "charge": 117.9
+            }
+          ],
+          "option": "선택Ⅱ"
+        }
+      ]
+    },
+    {
+      "id": "general-a1",
+      "contract_type": "일반용전력(갑)Ⅰ",
+      "contract_power": "계약전력 300kW 미만",
+      "rate_structure": "seasonal",
+      "effective_from": "2021-01-01",
+      "rates": [
+        {
+          "voltage": "저압",
+          "basic_charge": 6160,
+          "basic_charge_unit": "원/kW",
+          "energy": [
+            {
+              "season": "여름철",
+              "charge": 100.7
+            },
+            {
+              "season": "봄·가을철",
+              "charge": 60.2
+            },
+            {
+              "season": "겨울철",
+              "charge": 87.3
+            }
+          ]
+        },
+        {
+          "voltage": "고압A",
+          "basic_charge": 7170,
+          "basic_charge_unit": "원/kW",
+          "energy": [
+            {
+              "season": "여름철",
+              "charge": 110.9
+            },
+            {
+              "season": "봄·가을철",
+              "charge": 66.9
+            },
+            {
+              "season": "겨울철",
+              "charge": 98.6
+            }
+          ],
+          "option": "선택Ⅰ"
+        },
+        {
+          "voltage": "고압A",
+          "basic_charge": 8230,
+          "basic_charge_unit": "원/kW",
+          "energy": [
+            {
+              "season": "여름철",
+              "charge": 106.9
+            },
+            {
+              "season": "봄·가을철",
+              "charge": 62.6
+            },
+            {
+              "season": "겨울철",
+              "charge": 93.3
+            }
+          ],
+          "option": "선택Ⅱ"
+        },
+        {
+          "voltage": "고압B",
+          "basic_charge": 7170,
+          "basic_charge_unit": "원/kW",
+          "energy": [
+            {
+              "season": "여름철",
+              "charge": 108.8
+            },
+            {
+              "season": "봄·가을철",
+              "charge": 65.8
+            },
+            {
+              "season": "겨울철",
+              "charge": 95.6
+            }
+          ],
+          "option": "선택Ⅰ"
+        },
+        {
+          "voltage": "고압B",
+          "basic_charge": 8230,
+          "basic_charge_unit": "원/kW",
+          "energy": [
+            {
+              "season": "여름철",
+              "charge": 103.5
+            },
+            {
+              "season": "봄·가을철",
+              "charge": 60.5
+            },
+            {
+              "season": "겨울철",
+              "charge": 90.3
+            }
+          ],
+          "option": "선택Ⅱ"
+        }
+      ]
+    },
+    {
+      "id": "general-a2",
+      "contract_type": "일반용전력(갑)Ⅱ",
+      "contract_power": "계약전력 300kW 미만, 시간대별 구분계량기 설치고객",
+      "rate_structure": "time_of_use",
+      "effective_from": "2021-01-01",
+      "rates": [
+        {
+          "voltage": "고압A",
+          "basic_charge": 7170,
+          "basic_charge_unit": "원/kW",
+          "energy": [
+            {
+              "season": "여름철",
+              "time_zone": "경부하",
+              "charge": 57.7
+            },
+            {
+              "season": "여름철",
+              "time_zone": "중간부하",
+              "charge": 108.9
+            },
+            {
+              "season": "여름철",
+              "time_zone": "최대부하",
+              "charge": 131.4
+            },
+            {
+              "season": "봄·가을철",
+              "time_zone": "경부하",
+              "charge": 57.7
+            },
+            {
+              "season": "봄·가을철",
+              "time_zone": "중간부하",
+              "charge": 65.1
+            },
+            {
+              "season": "봄·가을철",
+              "time_zone": "최대부하",
+              "charge": 76.4
+            },
+            {
+              "season": "겨울철",
+              "time_zone": "경부하",
+              "charge": 66.4
+            },
+            {
+              "season": "겨울철",
+              "time_zone": "중간부하",
+              "charge": 96.8
+            },
+            {
+              "season": "겨울철",
+              "time_zone": "최대부하",
+              "charge": 111.6
+            }
+          ],
+          "option": "선택Ⅰ"
+        },
+        {
+          "voltage": "고압A",
+          "basic_charge": 8230,
+          "basic_charge_unit": "원/kW",
+          "energy": [
+            {
+              "season": "여름철",
+              "time_zone": "경부하",
+              "charge": 52.4
+            },
+            {
+              "season": "여름철",
+              "time_zone": "중간부하",
+              "charge": 103.6
+            },
+            {
+              "season": "여름철",
+              "time_zone": "최대부하",
+              "charge": 126.1
+            },
+            {
+              "season": "봄·가을철",
+              "time_zone": "경부하",
+              "charge": 52.4
+            },
+            {
+              "season": "봄·가을철",
+              "time_zone": "중간부하",
+              "charge": 59.8
+            },
+            {
+              "season": "봄·가을철",
+              "time_zone": "최대부하",
+              "charge": 71.1
+            },
+            {
+              "season": "겨울철",
+              "time_zone": "경부하",
+              "charge": 61.1
+            },
+            {
+              "season": "겨울철",
+              "time_zone": "중간부하",
+              "charge": 91.5
+            },
+            {
+              "season": "겨울철",
+              "time_zone": "최대부하",
+              "charge": 106.3
+            }
+          ],
+          "option": "선택Ⅱ"
+        },
+        {
+          "voltage": "고압B",
+          "basic_charge": 7170,
+          "basic_charge_unit": "원/kW",
+          "energy": [
+            {
+              "season": "여름철",
+              "time_zone": "경부하",
+              "charge": 57.1
+            },
+            {
+              "season": "여름철",
+              "time_zone": "중간부하",
+              "charge": 105.7
+            },
+            {
+              "season": "여름철",
+              "time_zone": "최대부하",
+              "charge": 122.1
+            },
+            {
+              "season": "봄·가을철",
+              "time_zone": "경부하",
+              "charge": 57.1
+            },
+            {
+              "season": "봄·가을철",
+              "time_zone": "중간부하",
+              "charge": 63.0
+            },
+            {
+              "season": "봄·가을철",
+              "time_zone": "최대부하",
+              "charge": 68.4
+            },
+            {
+              "season": "겨울철",
+              "time_zone": "경부하",
+              "charge": 66.1
+            },
+            {
+              "season": "겨울철",
+              "time_zone": "중간부하",
+              "charge": 93.4
+            },
+            {
+              "season": "겨울철",
+              "time_zone": "최대부하",
+              "charge": 107.6
+            }
+          ],
+          "option": "선택Ⅰ"
+        },
+        {
+          "voltage": "고압B",
+          "basic_charge": 8230,
+          "basic_charge_unit": "원/kW",
+          "energy": [
+            {
+              "season": "여름철",
+              "time_zone": "경부하",
+              "charge": 51.8
+            },
+            {
+              "season": "여름철",
+              "time_zone": "중간부하",
+              "charge": 100.4
+            },
+            {
+              "season": "여름철",
+              "time_zone": "최대부하",
+              "charge": 116.8
+            },
+            {
+              "season": "봄·가을철",
+              "time_zone": "경부하",
+              "charge": 51.8
+            },
+            {
+              "season": "봄·가을철",
+              "time_zone": "중간부하",
+              "charge": 57.7
+            },
+            {
+              "season": "봄·가을철",
+              "time_zone": "최대부하",
+              "charge": 63.1
+            },
+            {
+              "season": "겨울철",
+              "time_zone": "경부하",
+              "charge": 60.8
+            },
+            {
+              "season": "겨울철",
+              "time_zone": "중간부하",
+              "charge": 88.1
+            },
+            {
+              "season": "겨울철",
+              "time_zone": "최대부하",
+              "charge": 102.3
+            }
+          ],
+          "option": "선택Ⅱ"
+        }
+      ]
+    },
+    {
+      "id": "general-b",
+      "contract_type": "일반용전력(을)",
+      "contract_power": "계약전력 300kW 이상",
+      "rate_structure": "time_of_use",
+      "effective_from": "2021-01-01",
+      "combined_with_note": "이 요금표에서는 일반용전력(을)과 산업용전력(을)이 '일반용전력(을)·산업용전력(을)' 한 표로 묶여 같은 요율을 쓴다.",
+      "rates": [
+        {
+          "voltage": "고압A",
+          "basic_charge": 7220,
+          "basic_charge_unit": "원/kW",
+          "energy": [
+            {
+              "season": "여름철",
+              "time_zone": "경부하",
+              "charge": 56.6
+            },
+            {
+              "season": "여름철",
+              "time_zone": "중간부하",
+              "charge": 109.5
+            },
+            {
+              "season": "여름철",
+              "time_zone": "최대부하",
+              "charge": 191.6
+            },
+            {
+              "season": "봄·가을철",
+              "time_zone": "경부하",
+              "charge": 56.6
+            },
+            {
+              "season": "봄·가을철",
+              "time_zone": "중간부하",
+              "charge": 79.1
+            },
+            {
+              "season": "봄·가을철",
+              "time_zone": "최대부하",
+              "charge": 109.8
+            },
+            {
+              "season": "겨울철",
+              "time_zone": "경부하",
+              "charge": 63.6
+            },
+            {
+              "season": "겨울철",
+              "time_zone": "중간부하",
+              "charge": 109.7
+            },
+            {
+              "season": "겨울철",
+              "time_zone": "최대부하",
+              "charge": 167.2
+            }
+          ],
+          "option": "선택Ⅰ"
+        },
+        {
+          "voltage": "고압A",
+          "basic_charge": 8320,
+          "basic_charge_unit": "원/kW",
+          "energy": [
+            {
+              "season": "여름철",
+              "time_zone": "경부하",
+              "charge": 51.1
+            },
+            {
+              "season": "여름철",
+              "time_zone": "중간부하",
+              "charge": 104.0
+            },
+            {
+              "season": "여름철",
+              "time_zone": "최대부하",
+              "charge": 186.1
+            },
+            {
+              "season": "봄·가을철",
+              "time_zone": "경부하",
+              "charge": 51.1
+            },
+            {
+              "season": "봄·가을철",
+              "time_zone": "중간부하",
+              "charge": 73.6
+            },
+            {
+              "season": "봄·가을철",
+              "time_zone": "최대부하",
+              "charge": 104.3
+            },
+            {
+              "season": "겨울철",
+              "time_zone": "경부하",
+              "charge": 58.1
+            },
+            {
+              "season": "겨울철",
+              "time_zone": "중간부하",
+              "charge": 104.2
+            },
+            {
+              "season": "겨울철",
+              "time_zone": "최대부하",
+              "charge": 161.7
+            }
+          ],
+          "option": "선택Ⅱ"
+        },
+        {
+          "voltage": "고압A",
+          "basic_charge": 9810,
+          "basic_charge_unit": "원/kW",
+          "energy": [
+            {
+              "season": "여름철",
+              "time_zone": "경부하",
+              "charge": 50.2
+            },
+            {
+              "season": "여름철",
+              "time_zone": "중간부하",
+              "charge": 103.4
+            },
+            {
+              "season": "여름철",
+              "time_zone": "최대부하",
+              "charge": 173.7
+            },
+            {
+              "season": "봄·가을철",
+              "time_zone": "경부하",
+              "charge": 50.2
+            },
+            {
+              "season": "봄·가을철",
+              "time_zone": "중간부하",
+              "charge": 72.3
+            },
+            {
+              "season": "봄·가을철",
+              "time_zone": "최대부하",
+              "charge": 96.0
+            },
+            {
+              "season": "겨울철",
+              "time_zone": "경부하",
+              "charge": 57.5
+            },
+            {
+              "season": "겨울철",
+              "time_zone": "중간부하",
+              "charge": 103.6
+            },
+            {
+              "season": "겨울철",
+              "time_zone": "최대부하",
+              "charge": 150.5
+            }
+          ],
+          "option": "선택Ⅲ"
+        },
+        {
+          "voltage": "고압B",
+          "basic_charge": 6630,
+          "basic_charge_unit": "원/kW",
+          "energy": [
+            {
+              "season": "여름철",
+              "time_zone": "경부하",
+              "charge": 55.0
+            },
+            {
+              "season": "여름철",
+              "time_zone": "중간부하",
+              "charge": 107.3
+            },
+            {
+              "season": "여름철",
+              "time_zone": "최대부하",
+              "charge": 188.5
+            },
+            {
+              "season": "봄·가을철",
+              "time_zone": "경부하",
+              "charge": 55.0
+            },
+            {
+              "season": "봄·가을철",
+              "time_zone": "중간부하",
+              "charge": 77.3
+            },
+            {
+              "season": "봄·가을철",
+              "time_zone": "최대부하",
+              "charge": 107.6
+            },
+            {
+              "season": "겨울철",
+              "time_zone": "경부하",
+              "charge": 62.0
+            },
+            {
+              "season": "겨울철",
+              "time_zone": "중간부하",
+              "charge": 107.3
+            },
+            {
+              "season": "겨울철",
+              "time_zone": "최대부하",
+              "charge": 163.5
+            }
+          ],
+          "option": "선택Ⅰ"
+        },
+        {
+          "voltage": "고압B",
+          "basic_charge": 7380,
+          "basic_charge_unit": "원/kW",
+          "energy": [
+            {
+              "season": "여름철",
+              "time_zone": "경부하",
+              "charge": 51.2
+            },
+            {
+              "season": "여름철",
+              "time_zone": "중간부하",
+              "charge": 103.5
+            },
+            {
+              "season": "여름철",
+              "time_zone": "최대부하",
+              "charge": 184.7
+            },
+            {
+              "season": "봄·가을철",
+              "time_zone": "경부하",
+              "charge": 51.2
+            },
+            {
+              "season": "봄·가을철",
+              "time_zone": "중간부하",
+              "charge": 73.5
+            },
+            {
+              "season": "봄·가을철",
+              "time_zone": "최대부하",
+              "charge": 103.8
+            },
+            {
+              "season": "겨울철",
+              "time_zone": "경부하",
+              "charge": 58.2
+            },
+            {
+              "season": "겨울철",
+              "time_zone": "중간부하",
+              "charge": 103.5
+            },
+            {
+              "season": "겨울철",
+              "time_zone": "최대부하",
+              "charge": 159.7
+            }
+          ],
+          "option": "선택Ⅱ"
+        },
+        {
+          "voltage": "고압B",
+          "basic_charge": 8190,
+          "basic_charge_unit": "원/kW",
+          "energy": [
+            {
+              "season": "여름철",
+              "time_zone": "경부하",
+              "charge": 49.5
+            },
+            {
+              "season": "여름철",
+              "time_zone": "중간부하",
+              "charge": 101.8
+            },
+            {
+              "season": "여름철",
+              "time_zone": "최대부하",
+              "charge": 183.1
+            },
+            {
+              "season": "봄·가을철",
+              "time_zone": "경부하",
+              "charge": 49.5
+            },
+            {
+              "season": "봄·가을철",
+              "time_zone": "중간부하",
+              "charge": 71.9
+            },
+            {
+              "season": "봄·가을철",
+              "time_zone": "최대부하",
+              "charge": 102.2
+            },
+            {
+              "season": "겨울철",
+              "time_zone": "경부하",
+              "charge": 56.6
+            },
+            {
+              "season": "겨울철",
+              "time_zone": "중간부하",
+              "charge": 101.8
+            },
+            {
+              "season": "겨울철",
+              "time_zone": "최대부하",
+              "charge": 158.0
+            }
+          ],
+          "option": "선택Ⅲ"
+        },
+        {
+          "voltage": "고압C",
+          "basic_charge": 6590,
+          "basic_charge_unit": "원/kW",
+          "energy": [
+            {
+              "season": "여름철",
+              "time_zone": "경부하",
+              "charge": 54.5
+            },
+            {
+              "season": "여름철",
+              "time_zone": "중간부하",
+              "charge": 107.4
+            },
+            {
+              "season": "여름철",
+              "time_zone": "최대부하",
+              "charge": 188.3
+            },
+            {
+              "season": "봄·가을철",
+              "time_zone": "경부하",
+              "charge": 54.5
+            },
+            {
+              "season": "봄·가을철",
+              "time_zone": "중간부하",
+              "charge": 77.4
+            },
+            {
+              "season": "봄·가을철",
+              "time_zone": "최대부하",
+              "charge": 107.8
+            },
+            {
+              "season": "겨울철",
+              "time_zone": "경부하",
+              "charge": 61.4
+            },
+            {
+              "season": "겨울철",
+              "time_zone": "중간부하",
+              "charge": 107.0
+            },
+            {
+              "season": "겨울철",
+              "time_zone": "최대부하",
+              "charge": 163.6
+            }
+          ],
+          "option": "선택Ⅰ"
+        },
+        {
+          "voltage": "고압C",
+          "basic_charge": 7520,
+          "basic_charge_unit": "원/kW",
+          "energy": [
+            {
+              "season": "여름철",
+              "time_zone": "경부하",
+              "charge": 49.8
+            },
+            {
+              "season": "여름철",
+              "time_zone": "중간부하",
+              "charge": 102.7
+            },
+            {
+              "season": "여름철",
+              "time_zone": "최대부하",
+              "charge": 183.6
+            },
+            {
+              "season": "봄·가을철",
+              "time_zone": "경부하",
+              "charge": 49.8
+            },
+            {
+              "season": "봄·가을철",
+              "time_zone": "중간부하",
+              "charge": 72.7
+            },
+            {
+              "season": "봄·가을철",
+              "time_zone": "최대부하",
+              "charge": 103.1
+            },
+            {
+              "season": "겨울철",
+              "time_zone": "경부하",
+              "charge": 56.7
+            },
+            {
+              "season": "겨울철",
+              "time_zone": "중간부하",
+              "charge": 102.3
+            },
+            {
+              "season": "겨울철",
+              "time_zone": "최대부하",
+              "charge": 158.9
+            }
+          ],
+          "option": "선택Ⅱ"
+        },
+        {
+          "voltage": "고압C",
+          "basic_charge": 8090,
+          "basic_charge_unit": "원/kW",
+          "energy": [
+            {
+              "season": "여름철",
+              "time_zone": "경부하",
+              "charge": 48.7
+            },
+            {
+              "season": "여름철",
+              "time_zone": "중간부하",
+              "charge": 101.6
+            },
+            {
+              "season": "여름철",
+              "time_zone": "최대부하",
+              "charge": 182.5
+            },
+            {
+              "season": "봄·가을철",
+              "time_zone": "경부하",
+              "charge": 48.7
+            },
+            {
+              "season": "봄·가을철",
+              "time_zone": "중간부하",
+              "charge": 71.6
+            },
+            {
+              "season": "봄·가을철",
+              "time_zone": "최대부하",
+              "charge": 102.0
+            },
+            {
+              "season": "겨울철",
+              "time_zone": "경부하",
+              "charge": 55.6
+            },
+            {
+              "season": "겨울철",
+              "time_zone": "중간부하",
+              "charge": 101.2
+            },
+            {
+              "season": "겨울철",
+              "time_zone": "최대부하",
+              "charge": 157.8
+            }
+          ],
+          "option": "선택Ⅲ"
+        }
+      ]
+    },
+    {
+      "id": "industrial-b",
+      "contract_type": "산업용전력(을)",
+      "contract_power": "계약전력 300kW 이상",
+      "rate_structure": "time_of_use",
+      "effective_from": "2021-01-01",
+      "combined_with_note": "이 요금표에서는 일반용전력(을)과 산업용전력(을)이 '일반용전력(을)·산업용전력(을)' 한 표로 묶여 같은 요율을 쓴다.",
+      "rates": [
+        {
+          "voltage": "고압A",
+          "basic_charge": 7220,
+          "basic_charge_unit": "원/kW",
+          "energy": [
+            {
+              "season": "여름철",
+              "time_zone": "경부하",
+              "charge": 56.6
+            },
+            {
+              "season": "여름철",
+              "time_zone": "중간부하",
+              "charge": 109.5
+            },
+            {
+              "season": "여름철",
+              "time_zone": "최대부하",
+              "charge": 191.6
+            },
+            {
+              "season": "봄·가을철",
+              "time_zone": "경부하",
+              "charge": 56.6
+            },
+            {
+              "season": "봄·가을철",
+              "time_zone": "중간부하",
+              "charge": 79.1
+            },
+            {
+              "season": "봄·가을철",
+              "time_zone": "최대부하",
+              "charge": 109.8
+            },
+            {
+              "season": "겨울철",
+              "time_zone": "경부하",
+              "charge": 63.6
+            },
+            {
+              "season": "겨울철",
+              "time_zone": "중간부하",
+              "charge": 109.7
+            },
+            {
+              "season": "겨울철",
+              "time_zone": "최대부하",
+              "charge": 167.2
+            }
+          ],
+          "option": "선택Ⅰ"
+        },
+        {
+          "voltage": "고압A",
+          "basic_charge": 8320,
+          "basic_charge_unit": "원/kW",
+          "energy": [
+            {
+              "season": "여름철",
+              "time_zone": "경부하",
+              "charge": 51.1
+            },
+            {
+              "season": "여름철",
+              "time_zone": "중간부하",
+              "charge": 104.0
+            },
+            {
+              "season": "여름철",
+              "time_zone": "최대부하",
+              "charge": 186.1
+            },
+            {
+              "season": "봄·가을철",
+              "time_zone": "경부하",
+              "charge": 51.1
+            },
+            {
+              "season": "봄·가을철",
+              "time_zone": "중간부하",
+              "charge": 73.6
+            },
+            {
+              "season": "봄·가을철",
+              "time_zone": "최대부하",
+              "charge": 104.3
+            },
+            {
+              "season": "겨울철",
+              "time_zone": "경부하",
+              "charge": 58.1
+            },
+            {
+              "season": "겨울철",
+              "time_zone": "중간부하",
+              "charge": 104.2
+            },
+            {
+              "season": "겨울철",
+              "time_zone": "최대부하",
+              "charge": 161.7
+            }
+          ],
+          "option": "선택Ⅱ"
+        },
+        {
+          "voltage": "고압A",
+          "basic_charge": 9810,
+          "basic_charge_unit": "원/kW",
+          "energy": [
+            {
+              "season": "여름철",
+              "time_zone": "경부하",
+              "charge": 50.2
+            },
+            {
+              "season": "여름철",
+              "time_zone": "중간부하",
+              "charge": 103.4
+            },
+            {
+              "season": "여름철",
+              "time_zone": "최대부하",
+              "charge": 173.7
+            },
+            {
+              "season": "봄·가을철",
+              "time_zone": "경부하",
+              "charge": 50.2
+            },
+            {
+              "season": "봄·가을철",
+              "time_zone": "중간부하",
+              "charge": 72.3
+            },
+            {
+              "season": "봄·가을철",
+              "time_zone": "최대부하",
+              "charge": 96.0
+            },
+            {
+              "season": "겨울철",
+              "time_zone": "경부하",
+              "charge": 57.5
+            },
+            {
+              "season": "겨울철",
+              "time_zone": "중간부하",
+              "charge": 103.6
+            },
+            {
+              "season": "겨울철",
+              "time_zone": "최대부하",
+              "charge": 150.5
+            }
+          ],
+          "option": "선택Ⅲ"
+        },
+        {
+          "voltage": "고압B",
+          "basic_charge": 6630,
+          "basic_charge_unit": "원/kW",
+          "energy": [
+            {
+              "season": "여름철",
+              "time_zone": "경부하",
+              "charge": 55.0
+            },
+            {
+              "season": "여름철",
+              "time_zone": "중간부하",
+              "charge": 107.3
+            },
+            {
+              "season": "여름철",
+              "time_zone": "최대부하",
+              "charge": 188.5
+            },
+            {
+              "season": "봄·가을철",
+              "time_zone": "경부하",
+              "charge": 55.0
+            },
+            {
+              "season": "봄·가을철",
+              "time_zone": "중간부하",
+              "charge": 77.3
+            },
+            {
+              "season": "봄·가을철",
+              "time_zone": "최대부하",
+              "charge": 107.6
+            },
+            {
+              "season": "겨울철",
+              "time_zone": "경부하",
+              "charge": 62.0
+            },
+            {
+              "season": "겨울철",
+              "time_zone": "중간부하",
+              "charge": 107.3
+            },
+            {
+              "season": "겨울철",
+              "time_zone": "최대부하",
+              "charge": 163.5
+            }
+          ],
+          "option": "선택Ⅰ"
+        },
+        {
+          "voltage": "고압B",
+          "basic_charge": 7380,
+          "basic_charge_unit": "원/kW",
+          "energy": [
+            {
+              "season": "여름철",
+              "time_zone": "경부하",
+              "charge": 51.2
+            },
+            {
+              "season": "여름철",
+              "time_zone": "중간부하",
+              "charge": 103.5
+            },
+            {
+              "season": "여름철",
+              "time_zone": "최대부하",
+              "charge": 184.7
+            },
+            {
+              "season": "봄·가을철",
+              "time_zone": "경부하",
+              "charge": 51.2
+            },
+            {
+              "season": "봄·가을철",
+              "time_zone": "중간부하",
+              "charge": 73.5
+            },
+            {
+              "season": "봄·가을철",
+              "time_zone": "최대부하",
+              "charge": 103.8
+            },
+            {
+              "season": "겨울철",
+              "time_zone": "경부하",
+              "charge": 58.2
+            },
+            {
+              "season": "겨울철",
+              "time_zone": "중간부하",
+              "charge": 103.5
+            },
+            {
+              "season": "겨울철",
+              "time_zone": "최대부하",
+              "charge": 159.7
+            }
+          ],
+          "option": "선택Ⅱ"
+        },
+        {
+          "voltage": "고압B",
+          "basic_charge": 8190,
+          "basic_charge_unit": "원/kW",
+          "energy": [
+            {
+              "season": "여름철",
+              "time_zone": "경부하",
+              "charge": 49.5
+            },
+            {
+              "season": "여름철",
+              "time_zone": "중간부하",
+              "charge": 101.8
+            },
+            {
+              "season": "여름철",
+              "time_zone": "최대부하",
+              "charge": 183.1
+            },
+            {
+              "season": "봄·가을철",
+              "time_zone": "경부하",
+              "charge": 49.5
+            },
+            {
+              "season": "봄·가을철",
+              "time_zone": "중간부하",
+              "charge": 71.9
+            },
+            {
+              "season": "봄·가을철",
+              "time_zone": "최대부하",
+              "charge": 102.2
+            },
+            {
+              "season": "겨울철",
+              "time_zone": "경부하",
+              "charge": 56.6
+            },
+            {
+              "season": "겨울철",
+              "time_zone": "중간부하",
+              "charge": 101.8
+            },
+            {
+              "season": "겨울철",
+              "time_zone": "최대부하",
+              "charge": 158.0
+            }
+          ],
+          "option": "선택Ⅲ"
+        },
+        {
+          "voltage": "고압C",
+          "basic_charge": 6590,
+          "basic_charge_unit": "원/kW",
+          "energy": [
+            {
+              "season": "여름철",
+              "time_zone": "경부하",
+              "charge": 54.5
+            },
+            {
+              "season": "여름철",
+              "time_zone": "중간부하",
+              "charge": 107.4
+            },
+            {
+              "season": "여름철",
+              "time_zone": "최대부하",
+              "charge": 188.3
+            },
+            {
+              "season": "봄·가을철",
+              "time_zone": "경부하",
+              "charge": 54.5
+            },
+            {
+              "season": "봄·가을철",
+              "time_zone": "중간부하",
+              "charge": 77.4
+            },
+            {
+              "season": "봄·가을철",
+              "time_zone": "최대부하",
+              "charge": 107.8
+            },
+            {
+              "season": "겨울철",
+              "time_zone": "경부하",
+              "charge": 61.4
+            },
+            {
+              "season": "겨울철",
+              "time_zone": "중간부하",
+              "charge": 107.0
+            },
+            {
+              "season": "겨울철",
+              "time_zone": "최대부하",
+              "charge": 163.6
+            }
+          ],
+          "option": "선택Ⅰ"
+        },
+        {
+          "voltage": "고압C",
+          "basic_charge": 7520,
+          "basic_charge_unit": "원/kW",
+          "energy": [
+            {
+              "season": "여름철",
+              "time_zone": "경부하",
+              "charge": 49.8
+            },
+            {
+              "season": "여름철",
+              "time_zone": "중간부하",
+              "charge": 102.7
+            },
+            {
+              "season": "여름철",
+              "time_zone": "최대부하",
+              "charge": 183.6
+            },
+            {
+              "season": "봄·가을철",
+              "time_zone": "경부하",
+              "charge": 49.8
+            },
+            {
+              "season": "봄·가을철",
+              "time_zone": "중간부하",
+              "charge": 72.7
+            },
+            {
+              "season": "봄·가을철",
+              "time_zone": "최대부하",
+              "charge": 103.1
+            },
+            {
+              "season": "겨울철",
+              "time_zone": "경부하",
+              "charge": 56.7
+            },
+            {
+              "season": "겨울철",
+              "time_zone": "중간부하",
+              "charge": 102.3
+            },
+            {
+              "season": "겨울철",
+              "time_zone": "최대부하",
+              "charge": 158.9
+            }
+          ],
+          "option": "선택Ⅱ"
+        },
+        {
+          "voltage": "고압C",
+          "basic_charge": 8090,
+          "basic_charge_unit": "원/kW",
+          "energy": [
+            {
+              "season": "여름철",
+              "time_zone": "경부하",
+              "charge": 48.7
+            },
+            {
+              "season": "여름철",
+              "time_zone": "중간부하",
+              "charge": 101.6
+            },
+            {
+              "season": "여름철",
+              "time_zone": "최대부하",
+              "charge": 182.5
+            },
+            {
+              "season": "봄·가을철",
+              "time_zone": "경부하",
+              "charge": 48.7
+            },
+            {
+              "season": "봄·가을철",
+              "time_zone": "중간부하",
+              "charge": 71.6
+            },
+            {
+              "season": "봄·가을철",
+              "time_zone": "최대부하",
+              "charge": 102.0
+            },
+            {
+              "season": "겨울철",
+              "time_zone": "경부하",
+              "charge": 55.6
+            },
+            {
+              "season": "겨울철",
+              "time_zone": "중간부하",
+              "charge": 101.2
+            },
+            {
+              "season": "겨울철",
+              "time_zone": "최대부하",
+              "charge": 157.8
+            }
+          ],
+          "option": "선택Ⅲ"
+        }
+      ]
+    },
+    {
+      "id": "industrial-a1",
+      "contract_type": "산업용전력(갑)Ⅰ",
+      "contract_power": "계약전력 300kW 미만",
+      "rate_structure": "seasonal",
+      "effective_from": "2021-01-01",
+      "rates": [
+        {
+          "voltage": "저압",
+          "basic_charge": 5550,
+          "basic_charge_unit": "원/kW",
+          "energy": [
+            {
+              "season": "여름철",
+              "charge": 76.0
+            },
+            {
+              "season": "봄·가을철",
+              "charge": 54.2
+            },
+            {
+              "season": "겨울철",
+              "charge": 74.3
+            }
+          ]
+        },
+        {
+          "voltage": "고압A",
+          "basic_charge": 6490,
+          "basic_charge_unit": "원/kW",
+          "energy": [
+            {
+              "season": "여름철",
+              "charge": 84.6
+            },
+            {
+              "season": "봄·가을철",
+              "charge": 60.9
+            },
+            {
+              "season": "겨울철",
+              "charge": 84.5
+            }
+          ],
+          "option": "선택Ⅰ"
+        },
+        {
+          "voltage": "고압A",
+          "basic_charge": 7470,
+          "basic_charge_unit": "원/kW",
+          "energy": [
+            {
+              "season": "여름철",
+              "charge": 79.8
+            },
+            {
+              "season": "봄·가을철",
+              "charge": 56.3
+            },
+            {
+              "season": "겨울철",
+              "charge": 78.0
+            }
+          ],
+          "option": "선택Ⅱ"
+        },
+        {
+          "voltage": "고압B",
+          "basic_charge": 6000,
+          "basic_charge_unit": "원/kW",
+          "energy": [
+            {
+              "season": "여름철",
+              "charge": 83.4
+            },
+            {
+              "season": "봄·가을철",
+              "charge": 59.8
+            },
+            {
+              "season": "겨울철",
+              "charge": 83.0
+            }
+          ],
+          "option": "선택Ⅰ"
+        },
+        {
+          "voltage": "고압B",
+          "basic_charge": 6900,
+          "basic_charge_unit": "원/kW",
+          "energy": [
+            {
+              "season": "여름철",
+              "charge": 78.7
+            },
+            {
+              "season": "봄·가을철",
+              "charge": 55.2
+            },
+            {
+              "season": "겨울철",
+              "charge": 76.9
+            }
+          ],
+          "option": "선택Ⅱ"
+        }
+      ]
+    },
+    {
+      "id": "industrial-a2",
+      "contract_type": "산업용전력(갑)Ⅱ",
+      "contract_power": "계약전력 300kW 미만, 시간대별 구분계량기 설치고객",
+      "rate_structure": "time_of_use",
+      "effective_from": "2021-01-01",
+      "rates": [
+        {
+          "voltage": "고압A",
+          "basic_charge": 6490,
+          "basic_charge_unit": "원/kW",
+          "energy": [
+            {
+              "season": "여름철",
+              "time_zone": "경부하",
+              "charge": 55.5
+            },
+            {
+              "season": "여름철",
+              "time_zone": "중간부하",
+              "charge": 81.3
+            },
+            {
+              "season": "여름철",
+              "time_zone": "최대부하",
+              "charge": 114.8
+            },
+            {
+              "season": "봄·가을철",
+              "time_zone": "경부하",
+              "charge": 55.5
+            },
+            {
+              "season": "봄·가을철",
+              "time_zone": "중간부하",
+              "charge": 60.3
+            },
+            {
+              "season": "봄·가을철",
+              "time_zone": "최대부하",
+              "charge": 79.5
+            },
+            {
+              "season": "겨울철",
+              "time_zone": "경부하",
+              "charge": 62.9
+            },
+            {
+              "season": "겨울철",
+              "time_zone": "중간부하",
+              "charge": 79.8
+            },
+            {
+              "season": "겨울철",
+              "time_zone": "최대부하",
+              "charge": 109.2
+            }
+          ],
+          "option": "선택Ⅰ"
+        },
+        {
+          "voltage": "고압A",
+          "basic_charge": 7470,
+          "basic_charge_unit": "원/kW",
+          "energy": [
+            {
+              "season": "여름철",
+              "time_zone": "경부하",
+              "charge": 50.6
+            },
+            {
+              "season": "여름철",
+              "time_zone": "중간부하",
+              "charge": 76.4
+            },
+            {
+              "season": "여름철",
+              "time_zone": "최대부하",
+              "charge": 109.9
+            },
+            {
+              "season": "봄·가을철",
+              "time_zone": "경부하",
+              "charge": 50.6
+            },
+            {
+              "season": "봄·가을철",
+              "time_zone": "중간부하",
+              "charge": 55.4
+            },
+            {
+              "season": "봄·가을철",
+              "time_zone": "최대부하",
+              "charge": 74.6
+            },
+            {
+              "season": "겨울철",
+              "time_zone": "경부하",
+              "charge": 58.0
+            },
+            {
+              "season": "겨울철",
+              "time_zone": "중간부하",
+              "charge": 74.9
+            },
+            {
+              "season": "겨울철",
+              "time_zone": "최대부하",
+              "charge": 104.3
+            }
+          ],
+          "option": "선택Ⅱ"
+        },
+        {
+          "voltage": "고압B",
+          "basic_charge": 6000,
+          "basic_charge_unit": "원/kW",
+          "energy": [
+            {
+              "season": "여름철",
+              "time_zone": "경부하",
+              "charge": 52.3
+            },
+            {
+              "season": "여름철",
+              "time_zone": "중간부하",
+              "charge": 79.9
+            },
+            {
+              "season": "여름철",
+              "time_zone": "최대부하",
+              "charge": 113.7
+            },
+            {
+              "season": "봄·가을철",
+              "time_zone": "경부하",
+              "charge": 52.3
+            },
+            {
+              "season": "봄·가을철",
+              "time_zone": "중간부하",
+              "charge": 58.9
+            },
+            {
+              "season": "봄·가을철",
+              "time_zone": "최대부하",
+              "charge": 77.7
+            },
+            {
+              "season": "겨울철",
+              "time_zone": "경부하",
+              "charge": 59.5
+            },
+            {
+              "season": "겨울철",
+              "time_zone": "중간부하",
+              "charge": 77.5
+            },
+            {
+              "season": "겨울철",
+              "time_zone": "최대부하",
+              "charge": 106.2
+            }
+          ],
+          "option": "선택Ⅰ"
+        },
+        {
+          "voltage": "고압B",
+          "basic_charge": 6900,
+          "basic_charge_unit": "원/kW",
+          "energy": [
+            {
+              "season": "여름철",
+              "time_zone": "경부하",
+              "charge": 47.8
+            },
+            {
+              "season": "여름철",
+              "time_zone": "중간부하",
+              "charge": 75.4
+            },
+            {
+              "season": "여름철",
+              "time_zone": "최대부하",
+              "charge": 109.2
+            },
+            {
+              "season": "봄·가을철",
+              "time_zone": "경부하",
+              "charge": 47.8
+            },
+            {
+              "season": "봄·가을철",
+              "time_zone": "중간부하",
+              "charge": 54.4
+            },
+            {
+              "season": "봄·가을철",
+              "time_zone": "최대부하",
+              "charge": 73.2
+            },
+            {
+              "season": "겨울철",
+              "time_zone": "경부하",
+              "charge": 55.0
+            },
+            {
+              "season": "겨울철",
+              "time_zone": "중간부하",
+              "charge": 73.0
+            },
+            {
+              "season": "겨울철",
+              "time_zone": "최대부하",
+              "charge": 101.7
+            }
+          ],
+          "option": "선택Ⅱ"
+        }
+      ]
+    },
+    {
+      "id": "agricultural",
+      "contract_type": "농사용전력",
+      "rate_structure": "mixed",
+      "effective_from": "2021-01-01",
+      "rates": [
+        {
+          "class": "갑",
+          "voltage": null,
+          "basic_charge": 360,
+          "basic_charge_unit": "원/kW",
+          "energy": [
+            {
+              "season": "연중",
+              "charge": 16.6
+            }
+          ]
+        },
+        {
+          "class": "을",
+          "voltage": "저압",
+          "basic_charge": 1150,
+          "basic_charge_unit": "원/kW",
+          "energy": [
+            {
+              "season": "연중",
+              "charge": 34.2
+            }
+          ]
+        },
+        {
+          "class": "을",
+          "voltage": "고압(A,B)",
+          "basic_charge": 1210,
+          "basic_charge_unit": "원/kW",
+          "energy": [
+            {
+              "season": "여름철",
+              "charge": 36.9
+            },
+            {
+              "season": "봄·가을철",
+              "charge": 34.9
+            },
+            {
+              "season": "겨울철",
+              "charge": 36.9
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "streetlight",
+      "contract_type": "가로등",
+      "rate_structure": "flat",
+      "effective_from": "2021-01-01",
+      "rates": [
+        {
+          "class": "갑(정액등)",
+          "basic_charge": 35.7,
+          "basic_charge_unit": "원/W",
+          "minimum_monthly_charge": 1220,
+          "minimum_monthly_charge_unit": "원",
+          "energy": null
+        },
+        {
+          "class": "을(종량등)",
+          "basic_charge": 6290,
+          "basic_charge_unit": "원/kW",
+          "energy": [
+            {
+              "season": "연중",
+              "charge": 80.9
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "night-a",
+      "contract_type": "심야전력(갑)",
+      "rate_structure": "seasonal",
+      "effective_from": "2021-01-01",
+      "rates": [
+        {
+          "voltage": null,
+          "basic_charge": null,
+          "basic_charge_unit": null,
+          "energy": [
+            {
+              "season": "겨울철",
+              "charge": 71.8
+            },
+            {
+              "season": "기타계절",
+              "charge": 50.4
+            }
+          ]
+        }
+      ],
+      "minimum_monthly_charge_note": "월 최저요금: 20kWh에 해당하는 요금"
+    },
+    {
+      "id": "night-b1",
+      "contract_type": "심야전력(을)Ⅰ",
+      "rate_structure": "seasonal",
+      "effective_from": "2021-01-01",
+      "rates": [
+        {
+          "voltage": null,
+          "basic_charge": null,
+          "basic_charge_unit": null,
+          "energy": [
+            {
+              "season": "겨울철",
+              "charge": 57.3
+            },
+            {
+              "season": "기타계절",
+              "charge": 40.2
+            }
+          ]
+        }
+      ],
+      "minimum_monthly_charge_note": "월 최저요금: 20kWh에 해당하는 요금"
+    },
+    {
+      "id": "night-b2",
+      "contract_type": "심야전력(을)Ⅱ",
+      "rate_structure": "time_of_use",
+      "effective_from": "2021-01-01",
+      "rates": [
+        {
+          "voltage": null,
+          "basic_charge_formula": "7,160원 × (기타시간 사용전력량 ÷ 월간 총 사용전력량)",
+          "basic_charge_unit": "원/kW",
+          "energy": [
+            {
+              "time_zone": "심야시간",
+              "season": "겨울철",
+              "charge": 57.3
+            },
+            {
+              "time_zone": "심야시간",
+              "season": "기타계절",
+              "charge": 40.2
+            },
+            {
+              "time_zone": "기타시간",
+              "season": "연중",
+              "charge": 83.4
+            }
+          ]
+        }
+      ],
+      "minimum_monthly_charge_note": "월 최저요금: kW당 710원"
+    }
+  ]
+}

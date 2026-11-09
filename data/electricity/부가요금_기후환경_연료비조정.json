@@ -1,0 +1,152 @@
+{
+  "meta": {
+    "dataset": "kepco_electricity_surcharge",
+    "title": "기후환경요금 · 연료비조정단가 시계열",
+    "provider": "한국전력공사",
+    "currency": "KRW",
+    "unit": "원/kWh",
+    "updated_at": "2026-10-25",
+    "why_separate": "두 단가는 요금표 개정과 무관하게 따로 바뀐다. 연료비조정단가는 분기마다, 기후환경요금은 연 단위로 조정되므로 요금표 버전이 아니라 자체 시행일을 가진 시계열로 둔다.",
+    "how_obtained": "주택용 전기요금표(저압/고압) 에는 한전이 직접 계산한 '요금계산 예시' 가 실려 있고, 거기에 그 시점의 기후환경요금단가와 연료비조정단가가 숫자로 적혀 있다. 예: '기후환경요금 : 450kWh × 9원 = 4,050원'. 이 값을 1차 자료로 삼았다.",
+    "caution": "source_type 이 '보도' 인 값만 한전 공식 자료로 확인되지 않았다. '요금표' 인 값은 레포의 원본 PDF 에서 직접 읽은 것이다.",
+    "formula": "전기요금 = 기본요금 + 전력량요금 + (기후환경요금단가 × 사용전력량) + (연료비조정단가 × 사용전력량)"
+  },
+  "climate_charge": [
+    {
+      "effective_from": "2021-01-01",
+      "won_per_kwh": 5.3,
+      "source": "2021-01-01 시행 전기요금표 — 종합('기후환경요금단가 : 5.3원/kWh') 및 주택용 저압·고압 계산 예시",
+      "source_type": "요금표",
+      "confidence": "high"
+    },
+    {
+      "effective_from": "2022-04-01",
+      "won_per_kwh": 7.3,
+      "source": "2022-04-01 시행 주택용 전기요금표(저압·고압) 계산 예시 — '기후환경요금 : 450kWh × 7.3원 = 3,285원'",
+      "source_type": "요금표",
+      "confidence": "high",
+      "effective_from_confidence": "medium",
+      "note": "2022-04-01 요금표에 7.3원으로 적혀 있다. 5.3원에서 7.3원으로 바뀐 정확한 시점은 2021-01-02 ~ 2022-04-01 사이로만 좁혀진다. 2022-10-01 요금표에도 7.3원이 유지된다."
+    },
+    {
+      "effective_from": "2023-05-16",
+      "won_per_kwh": 9.0,
+      "source": "2023-05-16 시행 주택용 전기요금표(저압·고압) 계산 예시 — '기후환경요금 : 450kWh × 9원'",
+      "source_type": "요금표",
+      "confidence": "high",
+      "effective_from_confidence": "medium",
+      "note": "7.3원에서 9원으로 바뀐 정확한 시점은 2022-10-02 ~ 2023-05-16 사이로만 좁혀진다. 2023-11-09 과 2024-01-01 요금표에도 9원이 유지되고, 2025~2026년에도 9원이라는 보도가 있다."
+    }
+  ],
+  "climate_charge_note": "2024-01-01 이후 요금표에는 단가가 적혀 있지 않다. 2026년 현재도 9원이라는 보도가 있으나 한전 공식 자료로 확인하지 못했다. 최신 값은 한전ON 에서 확인할 것.",
+  "fuel_adjustment": [
+    {
+      "effective_from": "2022-04-01",
+      "period": "2022년 2분기",
+      "won_per_kwh": 0.0,
+      "source": "2022-04-01 시행 주택용 전기요금표 계산 예시 — '연료비조정요금 : 450kWh × 0원 = 0원'",
+      "source_type": "요금표",
+      "confidence": "high"
+    },
+    {
+      "effective_from": "2022-07-01",
+      "period": "2022년 3분기",
+      "won_per_kwh": 5.0,
+      "source": "2022-07-01 시행 주택용 전기요금표 — '연료비조정단가 : 5원/kWh('22년 3분기 기준)' 및 계산 예시 450kWh × 5원",
+      "source_type": "요금표",
+      "confidence": "high",
+      "note": "0원에서 상한인 +5원으로 올라간 시점이 2022년 3분기로 확정됐다."
+    },
+    {
+      "effective_from": "2022-10-01",
+      "period": "2022년 4분기",
+      "won_per_kwh": 5.0,
+      "source": "2022-10-01 시행 주택용 전기요금표(저압) 계산 예시 — '연료비조정요금 : 450kWh × 5원 = 2,250원'",
+      "source_type": "요금표",
+      "confidence": "high",
+      "note": "2022년 3분기부터 이어진 +5원 유지."
+    },
+    {
+      "effective_from": "2023-05-16",
+      "period": "2023년 2분기",
+      "won_per_kwh": 5.0,
+      "source": "2023-05-16 시행 주택용 전기요금표 계산 예시",
+      "source_type": "요금표",
+      "confidence": "high"
+    },
+    {
+      "effective_from": "2023-11-09",
+      "period": "2023년 4분기",
+      "won_per_kwh": 5.0,
+      "source": "2023-11-09 시행 주택용 전기요금표 계산 예시",
+      "source_type": "요금표",
+      "confidence": "high"
+    },
+    {
+      "effective_from": "2024-01-01",
+      "period": "2024년 1분기",
+      "won_per_kwh": 5.0,
+      "source": "2024-01-01 시행 주택용 전기요금표 계산 예시",
+      "source_type": "요금표",
+      "confidence": "high"
+    },
+    {
+      "effective_from": "2025-10-01",
+      "period": "2025년 4분기",
+      "won_per_kwh": 5.0,
+      "source": "언론 보도 (2026년 1분기 동결 기사에서 '2025년 4분기와 동일' 로 언급)",
+      "source_type": "보도",
+      "confidence": "medium"
+    },
+    {
+      "effective_from": "2026-01-01",
+      "period": "2026년 1분기",
+      "won_per_kwh": 5.0,
+      "source": "언론 보도 (한전, 2026년 1분기 연료비조정단가 kWh당 5원 유지 발표)",
+      "source_type": "보도",
+      "confidence": "medium"
+    },
+    {
+      "effective_from": "2026-07-01",
+      "period": "2026년 3분기",
+      "won_per_kwh": 5.0,
+      "source": "언론 보도 (4분기 동결 기사에서 '3분기에도 +5원' 으로 언급)",
+      "source_type": "보도",
+      "confidence": "medium"
+    },
+    {
+      "effective_from": "2026-10-01",
+      "period": "2026년 4분기",
+      "won_per_kwh": 5.0,
+      "source": "언론 보도 (한전 2026-09-21 발표, 3분기와 동일한 +5원 유지)",
+      "source_type": "보도",
+      "confidence": "medium"
+    }
+  ],
+  "fuel_adjustment_rule": {
+    "range": "-5원/kWh ~ +5원/kWh",
+    "basis": "직전 3개월간 유연탄·LNG 등 주요 연료비 변동을 반영해 분기마다 결정",
+    "current_state": "2022년 4분기 이후 확인된 시점은 모두 상한인 +5원이다."
+  },
+  "fuel_adjustment_gap_note": "분기마다 바뀌는 값인데 요금표가 나온 분기만 확인할 수 있었다. 2024년 2분기 ~ 2025년 3분기, 2026년 2분기는 값을 확보하지 못했다. 그 사이가 계속 +5원이었다고 단정하면 안 된다. 2022년 1분기 이전도 미확보다.",
+  "power_industry_fund_rate_observed": [
+    {
+      "effective_from": "2022-04-01",
+      "rate": 0.037,
+      "source": "주택용 전기요금표 계산 예시 — '전력기반기금 : 전기요금 × 3.7%'",
+      "source_type": "요금표"
+    },
+    {
+      "effective_from": "2024-07-01",
+      "rate": 0.032,
+      "source": "2024-07-01 시행 종합요금표",
+      "source_type": "요금표"
+    },
+    {
+      "effective_from": "2025-07-01",
+      "rate": 0.027,
+      "source": "2025-04-01 종합요금표 주석 — \"'25.7.1부 요율인하(3.2% → 2.7%)\"",
+      "source_type": "요금표"
+    }
+  ]
+}

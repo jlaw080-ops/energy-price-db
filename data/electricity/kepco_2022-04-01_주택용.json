@@ -1,0 +1,193 @@
+{
+  "meta": {
+    "dataset": "kepco_electricity_tariff",
+    "title": "한국전력공사 전기요금표 — 주택용만",
+    "provider": "한국전력공사",
+    "source_file": "단가정보/전기요금/주택용저압/2022-04-01_전기요금표_주택용저압.pdf",
+    "source_file_high_voltage": "단가정보/전기요금/주택용고압/2022-04-01_전기요금표_주택용고압.pdf",
+    "source_pages": [
+      1
+    ],
+    "published_label": "2022년 4월 1일 시행",
+    "currency": "KRW",
+    "extracted_at": "2026-10-25",
+    "extraction_method": "페이지 이미지 육안 전사",
+    "is_partial": true,
+    "coverage_note": "이 시행일은 주택용 저압·고압만 확보했다. 종합요금표가 글자 없는 이미지 PDF 라 다른 계약종별(일반용·교육용·산업용·농사용·가로등·심야전력)은 옮기지 못했다. 이 시점을 조회해 다른 종별이 비어 있다면 '요금이 없음' 이 아니라 '아직 데이터를 넣지 못함' 이다.",
+    "skip_pdf_number_check": "주택용 요금표는 텍스트 레이어가 오염돼 있어 자동 대조가 거짓 경고를 낸다. 페이지 이미지로 육안 전사했다.",
+    "notes": [
+      "연료비조정단가 0원/kWh ('22년 2분기 기준)"
+    ],
+    "source_typo_found": "이 요금표의 '요금계산 예시1' ② 전력량요금은 68,020원으로 인쇄돼 있으나, 바로 아래 1~3단계 내역의 합(18,640 + 37,560 + 14,025)은 70,225원이고 ⑤ 전기요금계도 70,225원을 쓴다. ②번 숫자가 한전 요금표의 오탈자다. 70,225원으로 계산하면 전기요금계 80,810원, 부가가치세 8,081원, 전력기반기금 2,980원, 청구금액 91,870원으로 인쇄된 값과 전부 일치한다. 따라서 여기 적은 단가(93.2 / 187.8 / 280.5)가 맞다.",
+    "verified_against_kepco_example": true
+  },
+  "taxes": {
+    "vat_rate": 0.1,
+    "vat_note": "전기요금 × 10% (원미만 4사5입)",
+    "power_industry_fund_rate": 0.037,
+    "power_industry_fund_note": "전기요금 × 3.7% (10원미만 절사)",
+    "billing_formula": "청구금액 = 전기요금 + 부가가치세 + 전력산업기반기금"
+  },
+  "surcharges": {
+    "climate_charge_won_per_kwh": null,
+    "climate_charge_note": "data/electricity/부가요금_기후환경_연료비조정.json 참고",
+    "fuel_adjustment_won_per_kwh": null,
+    "fuel_adjustment_note": "연료비조정단가 0원/kWh ('22년 2분기 기준)"
+  },
+  "tariffs": [
+    {
+      "id": "residential-lv",
+      "contract_type": "주택용전력",
+      "voltage_group": "저압",
+      "rate_structure": "progressive",
+      "effective_from": "2022-04-01",
+      "rates": [
+        {
+          "voltage": "저압",
+          "season": "기타계절",
+          "basic_charge_unit": "원/호",
+          "tiers": [
+            {
+              "tier": 1,
+              "usage_range": "200kWh 이하 사용",
+              "basic_charge": 910,
+              "energy_label": "처음 200kWh까지",
+              "energy_charge": 93.2
+            },
+            {
+              "tier": 2,
+              "usage_range": "201~400kWh 사용",
+              "basic_charge": 1600,
+              "energy_label": "다음 200kWh까지",
+              "energy_charge": 187.8
+            },
+            {
+              "tier": 3,
+              "usage_range": "400kWh 초과 사용",
+              "basic_charge": 7300,
+              "energy_label": "400kWh 초과",
+              "energy_charge": 280.5
+            }
+          ],
+          "super_user": {
+            "condition": "동계(12월 1일~2월 말일) 1,000kWh 초과",
+            "energy_charge": 709.4
+          }
+        },
+        {
+          "voltage": "저압",
+          "season": "하계",
+          "basic_charge_unit": "원/호",
+          "tiers": [
+            {
+              "tier": 1,
+              "usage_range": "300kWh 이하 사용",
+              "basic_charge": 910,
+              "energy_label": "처음 300kWh까지",
+              "energy_charge": 93.2
+            },
+            {
+              "tier": 2,
+              "usage_range": "301~450kWh 사용",
+              "basic_charge": 1600,
+              "energy_label": "다음 150kWh까지",
+              "energy_charge": 187.8
+            },
+            {
+              "tier": 3,
+              "usage_range": "450kWh 초과 사용",
+              "basic_charge": 7300,
+              "energy_label": "450kWh 초과",
+              "energy_charge": 280.5
+            }
+          ],
+          "super_user": {
+            "condition": "하계(7월 1일~8월 31일) 1,000kWh 초과",
+            "energy_charge": 709.4
+          }
+        }
+      ],
+      "season_definition": {
+        "하계": "7월 1일~8월 31일",
+        "기타계절": "1월 1일~6월 30일, 9월 1일~12월 31일"
+      }
+    },
+    {
+      "id": "residential-hv",
+      "contract_type": "주택용전력",
+      "voltage_group": "고압",
+      "rate_structure": "progressive",
+      "effective_from": "2022-04-01",
+      "rates": [
+        {
+          "voltage": "고압",
+          "season": "기타계절",
+          "basic_charge_unit": "원/호",
+          "tiers": [
+            {
+              "tier": 1,
+              "usage_range": "200kWh 이하 사용",
+              "basic_charge": 730,
+              "energy_label": "처음 200kWh까지",
+              "energy_charge": 78.2
+            },
+            {
+              "tier": 2,
+              "usage_range": "201~400kWh 사용",
+              "basic_charge": 1260,
+              "energy_label": "다음 200kWh까지",
+              "energy_charge": 147.2
+            },
+            {
+              "tier": 3,
+              "usage_range": "400kWh 초과 사용",
+              "basic_charge": 6060,
+              "energy_label": "400kWh 초과",
+              "energy_charge": 215.5
+            }
+          ],
+          "super_user": {
+            "condition": "동계(12월 1일~2월 말일) 1,000kWh 초과",
+            "energy_charge": 574.5
+          }
+        },
+        {
+          "voltage": "고압",
+          "season": "하계",
+          "basic_charge_unit": "원/호",
+          "tiers": [
+            {
+              "tier": 1,
+              "usage_range": "300kWh 이하 사용",
+              "basic_charge": 730,
+              "energy_label": "처음 300kWh까지",
+              "energy_charge": 78.2
+            },
+            {
+              "tier": 2,
+              "usage_range": "301~450kWh 사용",
+              "basic_charge": 1260,
+              "energy_label": "다음 150kWh까지",
+              "energy_charge": 147.2
+            },
+            {
+              "tier": 3,
+              "usage_range": "450kWh 초과 사용",
+              "basic_charge": 6060,
+              "energy_label": "450kWh 초과",
+              "energy_charge": 215.5
+            }
+          ],
+          "super_user": {
+            "condition": "하계(7월 1일~8월 31일) 1,000kWh 초과",
+            "energy_charge": 574.5
+          }
+        }
+      ],
+      "season_definition": {
+        "하계": "7월 1일~8월 31일",
+        "기타계절": "1월 1일~6월 30일, 9월 1일~12월 31일"
+      }
+    }
+  ]
+}
